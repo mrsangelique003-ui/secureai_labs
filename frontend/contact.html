@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — SecureAI Labs</title>
+  <meta name="description" content="Contact SecureAI Labs directly. Call, WhatsApp, email or find us at Kicukiro, Kigali, Rwanda." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo.svg" />
+  <style>
+    /* ── Contact page specific ── */
+    .contact-hero {
+      background: var(--cambridge-deeper);
+      padding: 100px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 30% 50%, rgba(0,108,183,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,108,183,0.2) 0%, transparent 60%);
+    }
+    .contact-hero .container { position: relative; z-index: 1; }
+    .contact-hero h1 { color: var(--white); font-size: clamp(2rem,4vw,3rem); margin-bottom: 12px; }
+    .contact-hero p  { color: rgba(255,255,255,0.82); font-size: 1.1rem; max-width: 540px; margin: 0 auto; }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+      overflow: hidden;
+      max-width: 860px;
+      margin: -48px auto 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Top coloured strip */
+    .contact-card-strip {
+      height: 6px;
+      background: linear-gradient(90deg, var(--cambridge) 0%, var(--teal) 50%, var(--cambridge-deeper) 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-col {
+      padding: 44px 40px;
+    }
+    .contact-col:first-child {
+      border-right: 1px solid var(--grey-100);
+    }
+    .contact-col-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--grey-900);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--cambridge);
+      display: inline-block;
+    }
+
+    .clink {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--grey-100);
+      text-decoration: none;
+      transition: var(--ease);
+    }
+    .clink:last-child { border-bottom: none; }
+    .clink:hover { padding-left: 6px; text-decoration: none; }
+    .clink:hover .clink-icon { background: var(--cambridge); color: var(--white); }
+
+    .clink-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: var(--cambridge-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: var(--ease);
+    }
+    .clink-body { flex: 1; }
+    .clink-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--grey-400);
+      margin-bottom: 2px;
+    }
+    .clink-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--grey-900);
+    }
+    .clink-arrow {
+      font-size: 1rem;
+      color: var(--cambridge);
+      flex-shrink: 0;
+    }
+
+    /* Social grid */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .soc-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--grey-200);
+      text-decoration: none;
+      transition: var(--ease);
+      background: var(--white);
+    }
+    .soc-btn:hover { border-color: var(--cambridge); background: var(--cambridge-pale); text-decoration: none; }
+    .soc-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .soc-name { font-size: 0.82rem; font-weight: 700; color: var(--grey-700); }
+    .soc-handle { font-size: 0.75rem; color: var(--grey-400); margin-top: 1px; }
+
+    /* Map placeholder */
+    .map-block {
+      background: var(--cambridge-pale);
+      border-top: 1px solid var(--grey-100);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .map-pin {
+      width: 52px; height: 52px;
+      background: var(--cambridge);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .map-text-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-400); font-weight: 700; margin-bottom: 3px; }
+    .map-text-value { font-size: 1rem; font-weight: 700; color: var(--grey-900); }
+    .map-text-sub   { font-size: 0.85rem; color: var(--grey-500); margin-top: 2px; }
+
+    /* Sessions strip */
+    .sessions-strip {
+      background: var(--cambridge-deeper);
+      max-width: 860px;
+      margin: 24px auto 0;
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      overflow: hidden;
+    }
+    .session-block {
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .session-divider { background: rgba(255,255,255,0.15); }
+    .session-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .session-times { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 800; color: var(--white); line-height: 1.4; }
+    .session-sub   { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    @media (max-width: 480px) {
+      .contact-col { padding: 28px 20px; }
+      .sessions-strip { grid-template-columns: 1fr; }
+      .session-divider { display: none; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">About Us</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="research.html">Research Journal</a><span class="utility-sep">|</span>
+      <a href="internships.html">Internships</a>
+    </div>
+    <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="contact.html" selected>English</option>
+          <option value="fr/contact.html">Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Secure Today, Empower Tomorrow</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="about.html" class="dropdown-link">About SecureAI Labs</a>
+          <a href="about.html#mission" class="dropdown-link">Mission &amp; Vision</a>
+          <a href="about.html#advantages" class="dropdown-link">Our Advantages</a>
+          <a href="about.html#team" class="dropdown-link">Our Team</a>
+          <a href="about.html#partners" class="dropdown-link">Our Partners</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="programs.html" class="nav-link">Services <span class="nav-arrow"></span></a>
+        <div class="mega-dropdown">
+          <div class="mega-col">
+            <div class="mega-col-title">Training</div>
+            <a href="programs.html#internship" class="mega-link">
+              <div class="mega-link-icon">💼</div>
+              <div class="mega-link-body"><span class="mega-link-title">Internship Programme</span><span class="mega-link-desc">Networking &amp; Software Engineering</span></div>
+            </a>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">🌐</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cisco Training Package</span><span class="mega-link-desc">5 official Cisco pathways</span></div>
+            </a>
+            <a href="programs.html#literacy" class="mega-link">
+              <div class="mega-link-icon">💻</div>
+              <div class="mega-link-body"><span class="mega-link-title">Digital Literacy</span><span class="mega-link-desc">Word, Excel, PowerPoint</span></div>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Research &amp; Learn</div>
+            <a href="programs.html#research-svc" class="mega-link">
+              <div class="mega-link-icon">🔬</div>
+              <div class="mega-link-body"><span class="mega-link-title">Research Services</span><span class="mega-link-desc">Articles, Thesis &amp; support</span></div>
+            </a>
+            <a href="tutorials.html" class="mega-link">
+              <div class="mega-link-icon">📖</div>
+              <div class="mega-link-body"><span class="mega-link-title">Tutorials</span><span class="mega-link-desc">Step-by-step learning guides</span></div>
+            </a>
+            <a href="games.html" class="mega-link">
+              <div class="mega-link-icon">🎮</div>
+              <div class="mega-link-body"><span class="mega-link-title">Games &amp; Quizzes</span><span class="mega-link-desc">Test your knowledge interactively</span></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="internships.html" class="nav-link">Internships <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="internships.html" class="dropdown-link">How It Works</a>
+          <a href="internships.html#open-roles" class="dropdown-link">Open Positions</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="research.html" class="nav-link">Research <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="research.html" class="dropdown-link">Research Journal (JSCI)</a>
+          <a href="research.html#journal" class="dropdown-link">Submit a Paper</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+      <li class="nav-item">
+        <a href="tutorials.html" class="nav-link">Learn <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="tutorials.html" class="dropdown-link">📖 Tutorials</a>
+          <a href="games.html" class="dropdown-link">🎮 Games &amp; Quizzes</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Services</a>
+    <a href="internships.html" class="mobile-nav-link">Internships</a>
+    <a href="research.html" class="mobile-nav-link">Research</a>
+    <a href="contact.html" class="mobile-nav-link active">Contact</a>
+  </div>
+</div>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Search services, research, internships..." />
+      <button class="search-submit">Search</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Close</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="contact-hero">
+  <div class="container">
+    <h1>Get in Touch</h1>
+    <p>Reach us directly — by phone, WhatsApp, email or in person at our office in Kigali.</p>
+  </div>
+</div>
+
+<!-- CONTACT CARD -->
+<div class="container" style="padding-bottom:80px;">
+  <div class="contact-card">
+    <div class="contact-card-strip"></div>
+    <div class="contact-grid">
+
+      <!-- LEFT — Direct contacts -->
+      <div class="contact-col">
+        <div class="contact-col-title">Call or Message Us</div>
+
+        <a href="tel:+250799431054" class="clink">
+          <div class="clink-icon">📞</div>
+          <div class="clink-body">
+            <div class="clink-label">Phone / WhatsApp</div>
+            <div class="clink-value">+250 799 431 054</div>
+          </div>
+          <span class="clink-arrow">→</span>
+        </a>
+
+        <a href="tel:+250791503203" class="clink">
+          <div class="clink-icon">📞</div>
+          <div class="clink-body">
+            <div class="clink-label">Phone / WhatsApp</div>
+            <div class="clink-value">+250 791 503 203</div>
+          </div>
+          <span class="clink-arrow">→</span>
+        </a>
+
+        <a href="mailto:info@secureailabs.org" class="clink">
+          <div class="clink-icon">✉️</div>
+          <div class="clink-body">
+            <div class="clink-label">General Email</div>
+            <div class="clink-value">info@secureailabs.org</div>
+          </div>
+          <span class="clink-arrow">→</span>
+        </a>
+
+        <a href="mailto:journal@secureailabs.org" class="clink">
+          <div class="clink-icon">🔬</div>
+          <div class="clink-body">
+            <div class="clink-label">Research / JSCI Journal</div>
+            <div class="clink-value">journal@secureailabs.org</div>
+          </div>
+          <span class="clink-arrow">→</span>
+        </a>
+
+        <a href="https://www.secureailabs.org" target="_blank" rel="noopener" class="clink">
+          <div class="clink-icon">🌐</div>
+          <div class="clink-body">
+            <div class="clink-label">Website</div>
+            <div class="clink-value">www.secureailabs.org</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- RIGHT — Social & location -->
+      <div class="contact-col">
+        <div class="contact-col-title">Find Us Online</div>
+
+        <div class="social-grid">
+          <a href="https://www.tiktok.com/@secureai.lab" target="_blank" rel="noopener" class="soc-btn">
+            <span class="soc-icon">🎵</span>
+            <div><div class="soc-name">TikTok</div><div class="soc-handle">@secureai.lab</div></div>
+          </a>
+          <a href="https://www.instagram.com/secureairwanda" target="_blank" rel="noopener" class="soc-btn">
+            <span class="soc-icon">📸</span>
+            <div><div class="soc-name">Instagram</div><div class="soc-handle">@secureairwanda</div></div>
+          </a>
+          <a href="https://x.com/SecureAILabRwa" target="_blank" rel="noopener" class="soc-btn">
+            <span class="soc-icon">𝕏</span>
+            <div><div class="soc-name">X (Twitter)</div><div class="soc-handle">@SecureAILabRwa</div></div>
+          </a>
+          <a href="https://linkedin.com/company/secure-ai-labs" target="_blank" rel="noopener" class="soc-btn">
+            <span class="soc-icon" style="font-size:0.95rem;font-weight:700;color:#0077b5;">in</span>
+            <div><div class="soc-name">LinkedIn</div><div class="soc-handle">Secure AI Labs</div></div>
+          </a>
+          <a href="https://www.instagram.com/secureailabsrwa" target="_blank" rel="noopener" class="soc-btn" style="grid-column:span 2;">
+            <span class="soc-icon">📸</span>
+            <div><div class="soc-name">Instagram (Alt)</div><div class="soc-handle">@secureailabsrwa</div></div>
+          </a>
+        </div>
+
+        <!-- Respond time note -->
+        <div style="margin-top:24px;background:var(--cambridge-pale);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse-dot 2s ease-in-out infinite;"></div>
+          <div>
+            <div style="font-size:0.82rem;font-weight:700;color:var(--grey-900);">We respond quickly</div>
+            <div style="font-size:0.78rem;color:var(--grey-500);">WhatsApp preferred for fast replies</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Location bar -->
+    <div class="map-block">
+      <div class="map-pin">📍</div>
+      <div>
+        <div class="map-text-label">Our Office</div>
+        <div class="map-text-value">Kicukiro, Kigali, Rwanda</div>
+        <div class="map-text-sub">Visit us during day sessions — we are open Mon–Sat</div>
+      </div>
+      <a href="https://maps.google.com/?q=Kicukiro+Kigali+Rwanda" target="_blank" rel="noopener"
+         class="btn btn-primary btn-sm" style="margin-left:auto;">
+        Open in Maps →
+      </a>
+    </div>
+  </div>
+
+  <!-- SESSION TIMES -->
+  <div class="sessions-strip">
+    <div class="session-block">
+      <div class="session-label">Day Session</div>
+      <div class="session-times">09:00 – 12:00<br>14:00 – 17:00</div>
+    </div>
+    <div class="session-divider"></div>
+    <div class="session-block">
+      <div class="session-label">Evening Session (Online)</div>
+      <div class="session-times">18:00 – 20:00</div>
+      <div class="session-sub">Available online via WhatsApp &amp; email</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Secure Today, Empower Tomorrow</span></div>
+          </a>
+          <p class="footer-brand-text">A hub of innovation and knowledge.</p>
+          <div class="footer-social-title">Follow Us</div>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@secureai.lab" class="social-icon" target="_blank">🎵</a>
+            <a href="https://www.instagram.com/secureairwanda" class="social-icon" target="_blank">📸</a>
+            <a href="https://x.com/SecureAILabRwa" class="social-icon" target="_blank">𝕏</a>
+            <a href="https://linkedin.com/company/secure-ai-labs" class="social-icon" target="_blank">in</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="programs.html#internship" class="footer-link">Internship Programme</a>
+            <a href="programs.html#cisco" class="footer-link">Cisco Training</a>
+            <a href="programs.html#research-svc" class="footer-link">Research Services</a>
+            <a href="programs.html#literacy" class="footer-link">Digital Literacy</a>
+            <a href="programs.html#jsci" class="footer-link">JSCI Journal</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="about.html#partners" class="footer-link">Our Partners</a>
+            <a href="research.html" class="footer-link">Research Journal</a>
+            <a href="internships.html" class="footer-link">Internships</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+250799431054" class="footer-link">📞 +250 799 431 054</a>
+            <a href="tel:+250791503203" class="footer-link">📞 +250 791 503 203</a>
+            <a href="mailto:info@secureailabs.org" class="footer-link">✉ info@secureailabs.org</a>
+            <a href="mailto:journal@secureailabs.org" class="footer-link">✉ journal@secureailabs.org</a>
+            <div class="footer-link" style="cursor:default;">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

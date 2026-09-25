@@ -1,0 +1,455 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formations — SecureAI Labs</title>
+  <meta name="description" content="Découvrez les programmes SecureAI Labs : IA/ML, certifications Cisco, cybersécurité, culture numérique et recherche — tous alignés sur les standards industriels mondiaux." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="../images/logo.svg" />
+</head>
+<body class="page-body">
+
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">À propos</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="#">Espace étudiant</a><span class="utility-sep">|</span>
+      <a href="#">Actualités</a>
+    </div>
+        <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Sélectionner la langue">
+          <option value="../programs.html">English</option>
+          <option value="programs.html" selected>Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link">À propos</a></li>
+      <li class="nav-item"><a href="programs.html" class="nav-link active">Formations</a></li>
+      <li class="nav-item"><a href="internships.html" class="nav-link">Stages</a></li>
+      <li class="nav-item"><a href="research.html" class="nav-link">Recherche</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Rechercher">🔍</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Postuler</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Accueil</a>
+    <a href="about.html" class="mobile-nav-link">À propos</a>
+    <a href="programs.html" class="mobile-nav-link active">Formations</a>
+    <a href="internships.html" class="mobile-nav-link">Stages</a>
+    <a href="research.html" class="mobile-nav-link">Recherche</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-actions"><a href="contact.html" class="btn btn-primary">Postuler</a></div>
+  </div>
+</div>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <h3 style="margin-bottom:16px;">Rechercher</h3>
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Formations, recherches, stages…" />
+      <button class="search-submit">Rechercher</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Fermer</button>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Formations</span>
+    </div>
+    <h1 class="anim-fade-up anim-delay-1">Formations &amp; Certifications</h1>
+    <p class="lead anim-fade-up anim-delay-2">Des programmes alignés sur les besoins du marché — de la culture numérique de base à l'ingénierie en sécurité IA avancée. Chaque formation est conçue avec des experts du secteur.</p>
+  </div>
+</section>
+
+<!-- FILTRE -->
+<div style="background:var(--white);border-bottom:1px solid var(--grey-200);position:sticky;top:var(--nav-total);z-index:100;">
+  <div class="container">
+    <div class="tab-bar" id="filterTabs" style="border-bottom:none;margin-bottom:0;">
+      <button class="tab-btn active" data-filter="all">Tous les programmes</button>
+      <button class="tab-btn" data-filter="ai">IA &amp; ML</button>
+      <button class="tab-btn" data-filter="cisco">Cisco</button>
+      <button class="tab-btn" data-filter="security">Cybersécurité</button>
+      <button class="tab-btn" data-filter="literacy">Culture numérique</button>
+      <button class="tab-btn" data-filter="research">Recherche</button>
+    </div>
+  </div>
+</div>
+
+<!-- PISTE 1 : IA & ML -->
+<section class="section" id="ai">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--cambridge);margin-bottom:36px;" class="reveal">
+      <span style="font-size:1.8rem;">🤖</span>
+      <div>
+        <span class="section-kicker" style="margin-bottom:2px;">Piste 1</span>
+        <h2 class="section-title" style="margin-bottom:0;">Intelligence Artificielle &amp; Machine Learning</h2>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="news-card prog-item reveal reveal-delay-1" data-cat="ai">
+        <div class="news-card-img" style="background:var(--cambridge-pale);">🐍</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-blue">Débutant</span><span class="tag tag-grey">8 semaines</span>
+          </div>
+          <div class="news-card-title">Fondements IA &amp; Python pour la sécurité</div>
+          <p class="news-card-excerpt">Introduction aux concepts IA, programmation Python et leurs applications en cybersécurité — aucune expérience préalable requise.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-2" data-cat="ai" style="border-top:3px solid var(--cambridge);">
+        <div class="news-card-img" style="background:var(--cambridge-light);">🤖</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-blue">Le plus populaire</span><span class="tag tag-grey">12 semaines</span>
+          </div>
+          <div class="news-card-title">Fondamentaux IA &amp; Machine Learning</div>
+          <p class="news-card-excerpt">Apprentissage supervisé/non supervisé, réseaux de neurones, NLP et déploiement sécurisé de systèmes IA en production.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-3" data-cat="ai">
+        <div class="news-card-img" style="background:#EEF0FF;">🔐</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-amber">Avancé</span><span class="tag tag-grey">16 semaines</span>
+          </div>
+          <div class="news-card-title">Ingénierie en sécurité IA</div>
+          <p class="news-card-excerpt">ML adversarial, sécurité des modèles, red-teaming et construction de défenses robustes contre les attaques basées sur l'IA.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Diplôme</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISTE 2 : CISCO -->
+<section class="section" style="background:var(--grey-50);" id="cisco">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--teal);margin-bottom:24px;" class="reveal">
+      <span style="font-size:1.8rem;">🌐</span>
+      <div>
+        <span class="section-kicker" style="color:var(--teal);margin-bottom:2px;">Piste 2 · Académie officielle Cisco</span>
+        <h2 class="section-title" style="margin-bottom:0;">Programmes de certification Cisco</h2>
+      </div>
+    </div>
+    <div class="alert alert-info reveal" style="margin-bottom:28px;">
+      <span>ℹ</span>
+      <span>SecureAI Labs est partenaire officiel de l'Académie de réseau Cisco. Tous nos programmes Cisco vous préparent directement aux examens officiels.</span>
+    </div>
+    <div class="grid-3">
+      <div class="news-card prog-item reveal reveal-delay-1" data-cat="cisco">
+        <div class="news-card-img" style="background:var(--teal-light);font-size:3rem;">📡</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-teal">Cisco Officiel</span><span class="tag tag-grey">16 semaines</span>
+          </div>
+          <div class="news-card-title">CCNA — Cisco Certified Network Associate</div>
+          <p class="news-card-excerpt">La certification réseau de base la plus reconnue au monde. Couvre la connectivité IP, la sécurité, l'automatisation et la gestion réseau.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Cert. CCNA</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-2" data-cat="cisco" style="border-top:3px solid var(--teal);">
+        <div class="news-card-img" style="background:var(--teal-light);font-size:3rem;">🛡️</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-teal">Cisco Officiel</span><span class="tag tag-grey">14 semaines</span>
+          </div>
+          <div class="news-card-title">CyberOps Associate</div>
+          <p class="news-card-excerpt">Surveillance de la sécurité, analyse basée sur l'hôte, analyse des intrusions réseau et politiques de sécurité. Préparation à l'examen CyberOps.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Cert. CyberOps</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-3" data-cat="cisco">
+        <div class="news-card-img" style="background:var(--teal-light);font-size:3rem;">⚙️</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-teal">Cisco Officiel</span><span class="tag tag-grey">12 semaines</span>
+          </div>
+          <div class="news-card-title">Cisco DevNet Associate</div>
+          <p class="news-card-excerpt">Pont entre réseaux et développement logiciel — automatisation réseau, programmabilité, APIs REST et infrastructure-as-code.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Cert. DevNet</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISTE 3 : CYBERSÉCURITÉ -->
+<section class="section" id="security">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--cambridge);margin-bottom:36px;" class="reveal">
+      <span style="font-size:1.8rem;">🔒</span>
+      <div>
+        <span class="section-kicker" style="margin-bottom:2px;">Piste 3</span>
+        <h2 class="section-title" style="margin-bottom:0;">Cybersécurité</h2>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="news-card prog-item reveal reveal-delay-1" data-cat="security">
+        <div class="news-card-img" style="background:#FFF5EC;">🔑</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-green">Débutant</span><span class="tag tag-grey">6 semaines</span>
+          </div>
+          <div class="news-card-title">Fondamentaux de cybersécurité</div>
+          <p class="news-card-excerpt">Menaces, vulnérabilités, chiffrement, pare-feux et bonnes pratiques de sécurité personnelle et organisationnelle.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-2" data-cat="security">
+        <div class="news-card-img" style="background:#FFF5EC;">💻</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-amber">Intermédiaire</span><span class="tag tag-grey">14 semaines</span>
+          </div>
+          <div class="news-card-title">Hacking éthique &amp; Tests d'intrusion</div>
+          <p class="news-card-excerpt">Méthodologie de hacking éthique, reconnaissance, exploitation et rapports structurés — aligné sur les parcours CEH et OSCP.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Diplôme</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-3" data-cat="security">
+        <div class="news-card-img" style="background:#F0F7FF;">☁️</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-blue">Avancé</span><span class="tag tag-grey">16 semaines</span>
+          </div>
+          <div class="news-card-title">Sécurité cloud &amp; Architecture Zero Trust</div>
+          <p class="news-card-excerpt">Contrôles de sécurité cloud, frameworks Zero Trust, IAM, SIEM et conformité sur AWS, Azure et GCP.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-teal">Diplôme</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISTE 4 : CULTURE NUMÉRIQUE -->
+<section class="section" style="background:var(--grey-50);" id="literacy">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--green);margin-bottom:24px;" class="reveal">
+      <span style="font-size:1.8rem;">📚</span>
+      <div>
+        <span class="section-kicker" style="color:var(--green);margin-bottom:2px;">Piste 4 · Gratuit &amp; Subventionné</span>
+        <h2 class="section-title" style="margin-bottom:0;">Culture numérique</h2>
+      </div>
+    </div>
+    <div class="alert alert-success reveal" style="margin-bottom:28px;">
+      <span>✓</span>
+      <span>Tous les programmes de culture numérique sont gratuits ou fortement subventionnés grâce à notre fonds d'impact communautaire.</span>
+    </div>
+    <div class="grid-3">
+      <div class="news-card prog-item reveal reveal-delay-1" data-cat="literacy">
+        <div class="news-card-img" style="background:#E8F5EE;">💡</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-green">Gratuit</span><span class="tag tag-grey">4 semaines</span>
+          </div>
+          <div class="news-card-title">Compétences numériques pour tous</div>
+          <p class="news-card-excerpt">Sécurité en ligne, outils de productivité, sensibilisation à l'IA et compétences numériques essentielles pour la vie moderne.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-green">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire gratuitement</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-2" data-cat="literacy">
+        <div class="news-card-img" style="background:#E8F5EE;">🧠</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-green">Subventionné</span><span class="tag tag-grey">5 semaines</span>
+          </div>
+          <div class="news-card-title">Culture IA pour les professionnels</div>
+          <p class="news-card-excerpt">Comprendre, évaluer et adopter en toute sécurité les outils IA en milieu professionnel — santé, finance, éducation, secteur public.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-green">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </div>
+      <div class="news-card prog-item reveal reveal-delay-3" data-cat="literacy">
+        <div class="news-card-img" style="background:#E8F5EE;">🎒</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="tag tag-green">Pour les écoles</span><span class="tag tag-grey">6 semaines</span>
+          </div>
+          <div class="news-card-title">Programme de sécurité numérique pour les jeunes</div>
+          <p class="news-card-excerpt">Programme scolaire couvrant la sécurité en ligne, la prévention du cyberharcèlement, les droits à la confidentialité et l'usage responsable de l'IA.</p>
+        </div>
+        <div class="news-card-footer">
+          <span class="tag tag-green">Certificat</span>
+          <a href="contact.html" class="btn btn-primary btn-sm">Devenir partenaire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISTE 5 : RECHERCHE -->
+<section class="section" id="research">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--amber);margin-bottom:36px;" class="reveal">
+      <span style="font-size:1.8rem;">🔬</span>
+      <div>
+        <span class="section-kicker" style="color:var(--amber);margin-bottom:2px;">Piste 5</span>
+        <h2 class="section-title" style="margin-bottom:0;">Recherche &amp; Publication</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card card-ruled reveal reveal-delay-1">
+        <span class="tag tag-amber" style="margin-bottom:12px;display:inline-block;">6 mois · Bourse</span>
+        <h3 class="card-title">Bourse de recherche en cybersécurité</h3>
+        <p class="card-text" style="margin-bottom:16px;">Un programme structuré où les participants mènent des recherches originales, reçoivent un mentorat de chercheurs seniors et publient dans la Revue SecureAI Labs.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <span class="tag tag-grey">Sécurité IA</span><span class="tag tag-grey">Confidentialité</span><span class="tag tag-grey">Politique</span>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <a href="contact.html" class="btn btn-primary btn-sm">Candidater</a>
+          <a href="research.html" class="btn btn-outline btn-sm">Voir les publications</a>
+        </div>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <span class="tag tag-amber" style="margin-bottom:12px;display:inline-block;">Flexible · 8 semaines</span>
+        <h3 class="card-title">Atelier rédaction académique &amp; publication</h3>
+        <p class="card-text" style="margin-bottom:16px;">Maîtrisez la rédaction académique, la méthodologie de recherche, les pratiques de citation et le processus d'évaluation par les pairs — du premier brouillon à la publication en libre accès.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <span class="tag tag-grey">Méthodes de recherche</span><span class="tag tag-grey">Rédaction</span><span class="tag tag-grey">Évaluation par les pairs</span>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <a href="contact.html" class="btn btn-primary btn-sm">S'inscrire</a>
+          <a href="contact.html" class="btn btn-outline btn-sm">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container reveal">
+    <h2>Vous ne savez pas quelle formation choisir ?</h2>
+    <p>Nos conseillers pédagogiques vous aideront à trouver la formation idéale selon votre profil, vos objectifs et votre emploi du temps — entièrement gratuit.</p>
+    <div class="cta-band-actions">
+      <a href="contact.html" class="btn btn-white btn-lg">Parler à un conseiller</a>
+      <a href="internships.html" class="btn btn-outline-white btn-lg">Voir les stages</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span></div>
+          </a>
+          <p class="footer-brand-text">Former la prochaine génération en IA et cybersécurité dans plus de 40 pays.</p>
+          <div class="footer-social-title">Suivez-nous</div>
+          <div class="footer-social"><a href="#" class="social-icon">𝕏</a><a href="#" class="social-icon">in</a><a href="#" class="social-icon">gh</a><a href="#" class="social-icon">▶</a></div>
+        </div>
+        <div>
+          <div class="footer-col-title">Formations</div>
+          <div class="footer-links">
+            <a href="programs.html" class="footer-link">IA &amp; Machine Learning</a>
+            <a href="programs.html#cisco" class="footer-link">Certifications Cisco</a>
+            <a href="programs.html#security" class="footer-link">Cybersécurité</a>
+            <a href="programs.html#literacy" class="footer-link">Culture numérique</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">À propos</a>
+            <a href="research.html" class="footer-link">Revue scientifique</a>
+            <a href="internships.html" class="footer-link">Stages</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Ressources</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Espace étudiant</a>
+            <a href="research.html" class="footer-link">Publications</a>
+            <a href="#" class="footer-link">Actualités</a>
+            <a href="contact.html" class="footer-link">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. Tous droits réservés.</p>
+      <div class="footer-legal"><a href="#">Confidentialité</a><a href="#">Conditions</a><a href="#">Accessibilité</a></div>
+    </div>
+  </div>
+</footer>
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Haut de page">↑</button>
+<script src="../js/main.js"></script>
+<script>
+  const filterBtns = document.querySelectorAll('#filterTabs .tab-btn');
+  const progItems  = document.querySelectorAll('.prog-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      progItems.forEach(el => { el.style.display = (f === 'all' || el.dataset.cat === f) ? '' : 'none'; });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAI Labs — Sécurisez aujourd'hui, Dynamisez demain</title>
+  <meta name="description" content="SecureAI Labs forme les professionnels de demain en IA et cybersécurité grâce à des formations pratiques, des stages en entreprise, des certifications Cisco et une revue académique." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="../images/logo.svg" />
+</head>
+<body class="page-body">
+
+<!-- BARRE UTILITAIRE -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">À propos</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="#">Espace étudiant</a><span class="utility-sep">|</span>
+      <a href="#">Actualités</a>
+    </div>
+        <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Sélectionner la langue">
+          <option value="../index.html">English</option>
+          <option value="index.html" selected>Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BARRE DE NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">À propos <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="about.html" class="dropdown-link">Qui sommes-nous</a>
+          <a href="about.html#mission" class="dropdown-link">Mission et Vision</a>
+          <a href="about.html#team" class="dropdown-link">Équipe de direction</a>
+          <a href="about.html#timeline" class="dropdown-link">Notre histoire</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="programs.html" class="nav-link">Formations <span class="nav-arrow"></span></a>
+        <div class="mega-dropdown">
+          <div class="mega-col">
+            <div class="mega-col-title">IA &amp; Technologie</div>
+            <a href="programs.html#ai" class="mega-link">
+              <div class="mega-link-icon">🤖</div>
+              <div class="mega-link-body"><span class="mega-link-title">IA &amp; Machine Learning</span><span class="mega-link-desc">Des fondamentaux à la sécurité avancée</span></div>
+            </a>
+            <a href="programs.html#security" class="mega-link">
+              <div class="mega-link-icon">🔒</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cybersécurité</span><span class="mega-link-desc">Essentiels, ethical hacking &amp; cloud</span></div>
+            </a>
+            <a href="programs.html#data" class="mega-link">
+              <div class="mega-link-icon">📊</div>
+              <div class="mega-link-body"><span class="mega-link-title">Science des données</span><span class="mega-link-desc">Analytique, confidentialité &amp; ML</span></div>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Certifications</div>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">🌐</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cisco CCNA</span><span class="mega-link-desc">Académie officielle Cisco</span></div>
+            </a>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">🛡️</div>
+              <div class="mega-link-body"><span class="mega-link-title">CyberOps Associate</span><span class="mega-link-desc">Opérations de sécurité</span></div>
+            </a>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">⚙️</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cisco DevNet</span><span class="mega-link-desc">Automatisation réseau</span></div>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Communauté</div>
+            <a href="programs.html#literacy" class="mega-link">
+              <div class="mega-link-icon">📚</div>
+              <div class="mega-link-body"><span class="mega-link-title">Culture numérique</span><span class="mega-link-desc">Programmes gratuits &amp; subventionnés</span></div>
+            </a>
+            <a href="research.html" class="mega-link">
+              <div class="mega-link-icon">🔬</div>
+              <div class="mega-link-body"><span class="mega-link-title">Bourse de recherche</span><span class="mega-link-desc">Publiez vos travaux</span></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="internships.html" class="nav-link">Stages <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="internships.html" class="dropdown-link">Comment ça marche</a>
+          <a href="internships.html#open-roles" class="dropdown-link">Postes ouverts</a>
+          <a href="contact.html" class="dropdown-link">Postuler</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="research.html" class="nav-link">Recherche <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="research.html" class="dropdown-link">Revue scientifique</a>
+          <a href="research.html#papers" class="dropdown-link">Parcourir les publications</a>
+          <a href="research.html#journal" class="dropdown-link">Soumettre un article</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Rechercher">🔍</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Postuler</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link active">Accueil</a>
+    <a href="about.html" class="mobile-nav-link">À propos</a>
+    <a href="programs.html" class="mobile-nav-link">Formations</a>
+    <a href="internships.html" class="mobile-nav-link">Stages</a>
+    <a href="research.html" class="mobile-nav-link">Recherche</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="contact.html" class="btn btn-primary">Postuler maintenant</a>
+      <a href="#" class="btn btn-outline">Espace étudiant</a>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <h3 style="margin-bottom:16px;">Rechercher sur SecureAI Labs</h3>
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Formations, recherches, stages…" />
+      <button class="search-submit">Rechercher</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Fermer</button>
+  </div>
+</div>
+
+<!-- HÉRO -->
+<section class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="container hero-content">
+    <div class="hero-kicker anim-fade-up anim-delay-1">Former la prochaine génération</div>
+    <h1 class="anim-fade-up anim-delay-2">
+      Formation en IA &amp; Sécurité<br>de renommée mondiale
+    </h1>
+    <p class="hero-lead anim-fade-up anim-delay-3">
+      SecureAI Labs propose des formations reconnues, des stages en entreprise, des certifications Cisco et une recherche évaluée par les pairs — accessibles aux apprenants de plus de 40 pays.
+    </p>
+    <div class="hero-actions anim-fade-up anim-delay-4">
+      <a href="programs.html" class="btn btn-white btn-lg">Explorer les formations</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Postuler maintenant</a>
+    </div>
+  </div>
+</section>
+
+<!-- BANDE D'ACCÈS RAPIDE -->
+<div class="hero-band">
+  <div class="container">
+    <div class="hero-band-inner">
+      <a href="programs.html" class="hero-band-item">
+        <div class="hero-band-icon">🎓</div>
+        <div>
+          <span class="hero-band-label">Programmes de formation</span>
+          <span class="hero-band-sub">IA, Sécurité, Cisco &amp; plus</span>
+        </div>
+      </a>
+      <a href="internships.html" class="hero-band-item">
+        <div class="hero-band-icon">💼</div>
+        <div>
+          <span class="hero-band-label">Stages en entreprise</span>
+          <span class="hero-band-sub">150+ entreprises partenaires</span>
+        </div>
+      </a>
+      <a href="research.html" class="hero-band-item">
+        <div class="hero-band-icon">📰</div>
+        <div>
+          <span class="hero-band-label">Revue scientifique</span>
+          <span class="hero-band-sub">Évaluée par les pairs, libre accès</span>
+        </div>
+      </a>
+      <a href="contact.html" class="hero-band-item">
+        <div class="hero-band-icon">🤝</div>
+        <div>
+          <span class="hero-band-label">S'impliquer</span>
+          <span class="hero-band-sub">Bourses &amp; partenariats</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CE QUE NOUS OFFRONS -->
+<section class="section" style="background:var(--white);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-kicker">Ce que nous offrons</span>
+      <h2 class="section-title">Un parcours complet de la formation à la carrière</h2>
+      <p class="section-lead">Tout ce dont vous avez besoin pour développer une expertise en sécurité IA — de la culture numérique jusqu'à la recherche avancée.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon">🎓</div>
+        <h3 class="card-title">Formation professionnelle</h3>
+        <p class="card-text">Des cours alignés sur les exigences du secteur en cybersécurité, IA, machine learning et réseaux — conçus par des experts et calés sur les normes mondiales.</p>
+        <a href="programs.html" class="card-link">Voir les formations</a>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon">💼</div>
+        <h3 class="card-title">Stages en entreprise</h3>
+        <p class="card-text">Des placements structurés dans des entreprises tech de premier plan, des labos de recherche et des cabinets de sécurité. 72 % des stagiaires reçoivent une offre d'emploi.</p>
+        <a href="internships.html" class="card-link">Voir les postes</a>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon">🌐</div>
+        <h3 class="card-title">Certifications Cisco</h3>
+        <p class="card-text">Obtenez les certifications Cisco mondialement reconnues — CCNA, CyberOps et DevNet — via notre partenariat officiel avec l'Académie de réseau Cisco.</p>
+        <a href="programs.html#cisco" class="card-link">Voir les certifications</a>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon">📚</div>
+        <h3 class="card-title">Culture numérique</h3>
+        <p class="card-text">Des programmes gratuits ou subventionnés pour développer la conscience de l'IA et les compétences numériques — pour les particuliers, les écoles et les associations.</p>
+        <a href="programs.html#literacy" class="card-link">En savoir plus</a>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon">🔬</div>
+        <h3 class="card-title">Soutien à la recherche</h3>
+        <p class="card-text">Mentorat, infrastructure de collaboration et orientation en financement pour les chercheurs en sécurité IA, systèmes préservant la confidentialité et calcul sécurisé.</p>
+        <a href="research.html" class="card-link">Explorer la recherche</a>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon">📰</div>
+        <h3 class="card-title">Publication académique</h3>
+        <p class="card-text">Soumettez à la Revue SecureAI Labs — une publication évaluée par les pairs couvrant la sécurité IA, la confidentialité, l'éthique et les nouvelles menaces numériques.</p>
+        <a href="research.html#journal" class="card-link">Soumettre un article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATISTIQUES -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="grid-4">
+      <div class="stat-block reveal"><span class="stat-num" data-count="2400">0</span><span class="stat-label">Étudiants formés dans le monde</span></div>
+      <div class="stat-block reveal reveal-delay-1"><span class="stat-num" data-count="150">0</span><span class="stat-label">Partenaires industriels</span></div>
+      <div class="stat-block reveal reveal-delay-2"><span class="stat-num" data-count="380">0</span><span class="stat-label">Articles de recherche publiés</span></div>
+      <div class="stat-block reveal reveal-delay-3"><span class="stat-num" data-count="98">0</span><span class="stat-label">% Taux d'emploi</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION DOUBLE — Notre approche -->
+<section class="section" style="background:var(--grey-50);padding:0;">
+  <div class="split-section">
+    <div class="split-img reveal">🌍</div>
+    <div class="split-content reveal reveal-delay-2">
+      <span class="section-kicker">Notre approche</span>
+      <h2 class="section-title">Une formation qui s'adapte à votre vie</h2>
+      <p style="margin-bottom:20px;">Les programmes de SecureAI Labs sont conçus pour le monde réel. Que vous soyez étudiant à Lagos, professionnel à Londres ou chercheur à Singapour — notre modèle flexible vient à vous.</p>
+      <p style="margin-bottom:28px;">Chaque programme allie cours magistraux, travaux pratiques, collaboration entre pairs et mentorat individuel avec des professionnels expérimentés.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-text"><strong>Options en ligne à votre rythme et cohortes en direct</strong> — étudiez selon votre emploi du temps</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-text"><strong>Accrédité par Cisco, IEEE et CompTIA</strong> — des certifications reconnues par les employeurs</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-text"><strong>Mentor dédié attribué</strong> — plus de 200 mentors actifs dans le secteur</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check">✓</div>
+          <div class="feature-text"><strong>Équipe d'orientation professionnelle</strong> — jusqu'à ce que vous trouviez votre poste</div>
+        </div>
+      </div>
+      <a href="about.html" class="btn btn-primary" style="margin-top:28px;">En savoir plus sur nous</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES PHARES -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px;" class="reveal">
+      <div>
+        <span class="section-kicker">Programmes phares</span>
+        <h2 class="section-title" style="margin-bottom:0;">Commencez votre parcours dès aujourd'hui</h2>
+      </div>
+      <a href="programs.html" class="btn btn-outline">Voir tous les programmes →</a>
+    </div>
+    <div class="grid-3">
+      <div class="news-card reveal reveal-delay-1">
+        <div class="news-card-img">🤖</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;margin-bottom:10px;">
+            <span class="tag tag-blue">IA &amp; ML</span>
+            <span class="tag tag-grey">12 semaines</span>
+          </div>
+          <div class="news-card-title">Fondamentaux de l'IA &amp; du Machine Learning</div>
+          <p class="news-card-excerpt">Construisez des bases solides en IA/ML, réseaux de neurones et Python appliqués à la sécurité informatique.</p>
+        </div>
+        <div class="news-card-footer">
+          <span style="font-size:0.8rem;color:var(--grey-400);">Débutant–Intermédiaire</span>
+          <a href="programs.html" class="card-link" style="margin-top:0;">S'inscrire →</a>
+        </div>
+      </div>
+      <div class="news-card reveal reveal-delay-2">
+        <div class="news-card-img" style="background:var(--cambridge-light);">📡</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;margin-bottom:10px;">
+            <span class="tag tag-teal">Cisco Officiel</span>
+            <span class="tag tag-grey">16 semaines</span>
+          </div>
+          <div class="news-card-title">CCNA &amp; CyberOps Associate</div>
+          <p class="news-card-excerpt">Préparez-vous aux examens Cisco reconnus mondialement grâce à des laboratoires complets et un soutien pédagogique expert.</p>
+        </div>
+        <div class="news-card-footer">
+          <span style="font-size:0.8rem;color:var(--grey-400);">Intermédiaire</span>
+          <a href="programs.html" class="card-link" style="margin-top:0;">S'inscrire →</a>
+        </div>
+      </div>
+      <div class="news-card reveal reveal-delay-3">
+        <div class="news-card-img" style="background:#E8F5EE;">🔬</div>
+        <div class="news-card-body">
+          <div style="display:flex;gap:6px;margin-bottom:10px;">
+            <span class="tag tag-green">Recherche</span>
+            <span class="tag tag-grey">6 mois</span>
+          </div>
+          <div class="news-card-title">Bourse de recherche en cybersécurité</div>
+          <p class="news-card-excerpt">Un programme guidé du projet à la publication — avec mentorat, éthique de recherche et évaluation par les pairs.</p>
+        </div>
+        <div class="news-card-footer">
+          <span style="font-size:0.8rem;color:var(--grey-400);">Avancé</span>
+          <a href="research.html" class="card-link" style="margin-top:0;">Candidater →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉTAPES DU PARCOURS -->
+<section class="section" style="background:var(--cambridge-pale);">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-kicker">Votre parcours</span>
+      <h2 class="section-title">De la candidature à la carrière en quatre étapes</h2>
+      <p class="section-lead">Un chemin structuré qui vous mène de l'apprentissage à une carrière professionnelle — avec un soutien à chaque étape.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Candidater &amp; Évaluer</div>
+        <p class="process-desc">Complétez notre candidature en ligne et notre bilan de compétences pour trouver la bonne formation.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Apprendre &amp; Certifier</div>
+        <p class="process-desc">Cours avec des experts, travaux pratiques et projets réels. Obtenez certifications Cisco et diplômes sectoriels.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Faire un stage &amp; Pratiquer</div>
+        <p class="process-desc">Soyez mis en relation avec des entreprises partenaires pour des stages structurés sur des défis réels.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Lancer sa carrière</div>
+        <p class="process-desc">Utilisez notre réseau mondial, notre coaching carrière et notre communauté d'anciens pour décrocher le poste idéal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-kicker">Ce que dit notre communauté</span>
+      <h2 class="section-title">Les voix de nos anciens étudiants</h2>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial reveal reveal-delay-1">
+        <p class="testimonial-text">« Le programme CCNA de SecureAI Labs est le meilleur investissement que j'aie fait pour ma carrière. J'ai obtenu ma certification et une offre d'emploi en trois mois. »</p>
+        <div style="margin-top:16px;">
+          <div class="testimonial-author">Amara Kone</div>
+          <div class="testimonial-role">Ingénieure en sécurité réseau, Accra · Diplômée 2025</div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-2">
+        <p class="testimonial-text">« L'équipe de placement m'a trouvé un poste parfait à Londres. Six mois plus tard, on m'a proposé un CDI. SecureAI Labs a changé l'orientation de ma carrière. »</p>
+        <div style="margin-top:16px;">
+          <div class="testimonial-author">Rohan Singh</div>
+          <div class="testimonial-role">Analyste en sécurité, Londres · Diplômé 2025</div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-3">
+        <p class="testimonial-text">« L'accès à la revue et au réseau de mentors a considérablement accéléré mes publications. Mon article sur l'apprentissage fédéré est maintenant largement cité. »</p>
+        <div style="margin-top:16px;">
+          <div class="testimonial-author">Dr Liu Wei</div>
+          <div class="testimonial-role">Chercheur en IA, Singapour · Chercheur associé</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTENAIRES -->
+<div class="logo-strip">
+  <div class="container">
+    <p class="logo-strip-title">Reconnu par des étudiants et organisations du monde entier</p>
+    <div class="logo-row">
+      <div class="logo-item">🌐 CISCO NetAcad</div>
+      <div class="logo-item">🏛️ IEEE</div>
+      <div class="logo-item">🔬 MIT Research</div>
+      <div class="logo-item">🏢 ISACA</div>
+      <div class="logo-item">🛡️ CompTIA</div>
+      <div class="logo-item">📡 WEF Tech Leaders</div>
+      <div class="logo-item">🌍 UNESCO</div>
+    </div>
+  </div>
+</div>
+
+<!-- APPEL À L'ACTION -->
+<div class="cta-band">
+  <div class="container reveal">
+    <span class="tag tag-blue" style="margin-bottom:20px;display:inline-block;">Cohorte 2026 ouverte</span>
+    <h2>Prêt à faire avancer votre carrière en IA &amp; Sécurité ?</h2>
+    <p>Rejoignez des milliers d'étudiants et de professionnels qui ont transformé leur carrière grâce à SecureAI Labs. Les candidatures pour notre prochaine cohorte sont ouvertes — places limitées.</p>
+    <div class="cta-band-actions">
+      <a href="contact.html" class="btn btn-white btn-lg">Postuler — C'est gratuit</a>
+      <a href="programs.html" class="btn btn-outline-white btn-lg">Voir les formations</a>
+    </div>
+  </div>
+</div>
+
+<!-- PIED DE PAGE -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span></div>
+          </a>
+          <p class="footer-brand-text">Former la prochaine génération de professionnels en IA et cybersécurité à travers l'éducation, l'expérience et la recherche — dans plus de 40 pays.</p>
+          <div class="footer-social-title">Suivez-nous</div>
+          <div class="footer-social">
+            <a href="#" class="social-icon">𝕏</a><a href="#" class="social-icon">in</a><a href="#" class="social-icon">gh</a><a href="#" class="social-icon">▶</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Formations</div>
+          <div class="footer-links">
+            <a href="programs.html" class="footer-link">IA &amp; Machine Learning</a>
+            <a href="programs.html#cisco" class="footer-link">Certifications Cisco</a>
+            <a href="programs.html#security" class="footer-link">Cybersécurité</a>
+            <a href="programs.html#literacy" class="footer-link">Culture numérique</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">À propos</a>
+            <a href="about.html#team" class="footer-link">Équipe de direction</a>
+            <a href="research.html" class="footer-link">Revue scientifique</a>
+            <a href="contact.html" class="footer-link">Nous contacter</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Ressources</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Espace étudiant</a>
+            <a href="research.html" class="footer-link">Publications</a>
+            <a href="#" class="footer-link">Actualités</a>
+            <a href="contact.html" class="footer-link">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. Tous droits réservés. Enregistré au Nigeria &amp; au Royaume-Uni.</p>
+      <div class="footer-legal">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Haut de page">↑</button>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "first_name": "Test",
+    "last_name": "User",
+    "email": "test@test.com",
+    "phone": "",
+    "country": "",
+    "inquiry_type": "general",
+    "interest": "",
+    "background": "",
+    "message": "Test message from SecureAI Labs website",
+    "status": "new",
+    "id": "35edf07b",
+    "created_at": "2026-09-24 22:04:29"
+  }
+]

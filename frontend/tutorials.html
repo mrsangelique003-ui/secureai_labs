@@ -1,0 +1,720 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorials — SecureAI Labs</title>
+  <meta name="description" content="Step-by-step tutorials on networking, software engineering, Cisco training, digital literacy and research methods from SecureAI Labs." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo.svg" />
+  <style>
+    /* ── Tutorials page ── */
+    .tut-hero {
+      background: linear-gradient(135deg, #003060 0%, var(--cambridge) 60%, var(--teal) 100%);
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tut-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    }
+    .tut-hero .container { position: relative; z-index: 1; }
+    .tut-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3.2rem); margin-bottom: 14px; }
+    .tut-hero p  { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 540px; margin: 0 auto 32px; }
+
+    /* Subject panel */
+    .subject-nav {
+      background: var(--white);
+      border-right: 1px solid var(--grey-100);
+      padding: 28px 0;
+      min-width: 220px;
+      position: sticky;
+      top: var(--nav-total);
+      max-height: calc(100vh - var(--nav-total));
+      overflow-y: auto;
+    }
+    .subject-nav-title {
+      font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--grey-400); padding: 0 20px; margin-bottom: 12px;
+    }
+    .subject-btn {
+      display: flex; align-items: center; gap: 12px;
+      width: 100%; padding: 12px 20px;
+      background: none; border: none; border-left: 3px solid transparent;
+      text-align: left; cursor: pointer; font-family: var(--font-sans);
+      transition: var(--ease);
+    }
+    .subject-btn:hover { background: var(--cambridge-pale); border-left-color: var(--cambridge-light); }
+    .subject-btn.active { background: var(--cambridge-pale); border-left-color: var(--cambridge); }
+    .subject-btn-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .subject-btn-text  { font-size: 0.875rem; font-weight: 600; color: var(--grey-700); }
+    .subject-btn.active .subject-btn-text { color: var(--cambridge); }
+    .subject-count { margin-left: auto; font-size: 0.72rem; font-weight: 700; background: var(--cambridge-light); color: var(--cambridge); padding: 2px 7px; border-radius: 10px; }
+
+    /* Two-column layout */
+    .tutorials-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 70vh;
+    }
+    @media (max-width: 768px) {
+      .tutorials-layout { grid-template-columns: 1fr; }
+      .subject-nav { position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--grey-200); padding: 16px 0; display: flex; overflow-x: auto; gap: 0; }
+      .subject-nav .subject-nav-title { display: none; }
+      .subject-btn { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; padding: 10px 16px; }
+      .subject-btn.active { border-bottom-color: var(--cambridge); }
+    }
+
+    .tutorials-content { padding: 36px 40px; }
+    @media (max-width: 640px) { .tutorials-content { padding: 20px 16px; } }
+
+    /* Tutorial card */
+    .tut-card {
+      background: var(--white);
+      border: 1.5px solid var(--grey-200);
+      border-radius: 12px;
+      padding: 0;
+      overflow: hidden;
+      transition: var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .tut-card:hover {
+      border-color: var(--cambridge);
+      box-shadow: 0 6px 28px rgba(0,108,183,0.1);
+      transform: translateY(-2px);
+    }
+    .tut-card-top {
+      padding: 20px 22px 0;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .tut-num {
+      width: 36px; height: 36px;
+      background: var(--cambridge);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-weight: 800; font-size: 0.9rem;
+      color: var(--white); flex-shrink: 0;
+    }
+    .tut-card-body { padding: 12px 22px 16px; flex: 1; }
+    .tut-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--grey-900); margin-bottom: 6px; line-height: 1.4; }
+    .tut-desc  { font-size: 0.82rem; color: var(--grey-500); line-height: 1.65; }
+    .tut-card-footer {
+      padding: 12px 22px;
+      border-top: 1px solid var(--grey-100);
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .tut-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tut-pill  { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; background: var(--grey-50); border: 1px solid var(--grey-200); color: var(--grey-500); }
+
+    /* Lesson modal */
+    .lesson-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,20,60,0.82);
+      z-index: 2000;
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .lesson-overlay.open { display: flex; }
+    .lesson-modal {
+      background: var(--white);
+      border-radius: 18px;
+      max-width: 720px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .lesson-header {
+      background: var(--cambridge-deeper);
+      padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0;
+    }
+    .lesson-header-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .lesson-close { background: rgba(255,255,255,0.15); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; cursor: pointer; }
+    .lesson-body { padding: 32px 28px; }
+    .lesson-step {
+      display: flex; gap: 16px; margin-bottom: 28px;
+    }
+    .lesson-step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--cambridge); color: var(--white);
+      font-family: var(--font-serif); font-weight: 800; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .lesson-step-content h4 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 6px; }
+    .lesson-step-content p  { font-size: 0.88rem; color: var(--grey-500); line-height: 1.7; margin: 0; }
+    .lesson-code {
+      background: #1e2a3a; color: #e2e8f0;
+      border-radius: 8px; padding: 14px 18px;
+      font-family: 'Courier New', monospace; font-size: 0.85rem;
+      margin: 10px 0; line-height: 1.6; overflow-x: auto;
+    }
+    .lesson-code .kw  { color: #93c5fd; }
+    .lesson-code .str { color: #86efac; }
+    .lesson-code .cmt { color: #6b7280; font-style: italic; }
+    .lesson-tip {
+      background: var(--cambridge-pale); border-left: 4px solid var(--cambridge);
+      border-radius: 0 8px 8px 0; padding: 12px 16px;
+      font-size: 0.85rem; color: var(--cambridge-deeper); margin: 12px 0;
+    }
+    .lesson-footer { padding: 20px 28px; border-top: 1px solid var(--grey-100); display: flex; justify-content: space-between; align-items: center; }
+
+    /* Progress bar inside tutorial card */
+    .tut-progress { height: 4px; background: var(--grey-100); }
+    .tut-progress-fill { height: 4px; background: var(--cambridge); }
+
+    /* Section header inside tutorial area */
+    .tut-section-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 2px solid var(--cambridge);
+    }
+    .tut-section-icon { font-size: 1.8rem; }
+    .tut-section-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--grey-900); margin: 0; }
+    .tut-section-kicker { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cambridge); margin-bottom: 3px; }
+  </style>
+</head>
+<body class="page-body">
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">About Us</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="games.html">Games &amp; Quizzes</a><span class="utility-sep">|</span>
+      <a href="research.html">Research</a>
+    </div>
+    <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="tutorials.html" selected>English</option>
+          <option value="fr/index.html">Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Secure Today, Empower Tomorrow</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="programs.html" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="internships.html" class="nav-link">Internships</a></li>
+      <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
+      <li class="nav-item"><a href="tutorials.html" class="nav-link active">Tutorials</a></li>
+      <li class="nav-item"><a href="games.html" class="nav-link">Games</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="programs.html" class="mobile-nav-link">Services</a>
+    <a href="tutorials.html" class="mobile-nav-link active">Tutorials</a>
+    <a href="games.html" class="mobile-nav-link">Games</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </div>
+</div>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Search tutorials..." />
+      <button class="search-submit">Search</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Close</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="tut-hero">
+  <div class="container">
+    <h1 class="anim-fade-up anim-delay-1">Learning Tutorials</h1>
+    <p class="anim-fade-up anim-delay-2">Step-by-step guides for every service we offer — from networking basics to research publishing. Free for all SecureAI Labs students.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;" class="anim-fade-up anim-delay-3">
+      <a href="#tutorials" class="btn btn-white btn-lg">Browse Tutorials</a>
+      <a href="games.html" class="btn btn-outline-white btn-lg">Test Your Knowledge</a>
+    </div>
+  </div>
+</div>
+
+<!-- TUTORIALS LAYOUT -->
+<div id="tutorials" style="background:var(--grey-50);">
+  <div class="tutorials-layout" style="max-width:1200px;margin:0 auto;">
+
+    <!-- SUBJECT NAV -->
+    <nav class="subject-nav" aria-label="Subject navigation">
+      <div class="subject-nav-title">Subjects</div>
+      <button class="subject-btn active" onclick="showSubject('networking', this)">
+        <span class="subject-btn-icon">🌐</span>
+        <span class="subject-btn-text">Networking</span>
+        <span class="subject-count">4</span>
+      </button>
+      <button class="subject-btn" onclick="showSubject('software', this)">
+        <span class="subject-btn-icon">💻</span>
+        <span class="subject-btn-text">Software Dev</span>
+        <span class="subject-count">4</span>
+      </button>
+      <button class="subject-btn" onclick="showSubject('cisco', this)">
+        <span class="subject-btn-icon">📡</span>
+        <span class="subject-btn-text">Cisco Training</span>
+        <span class="subject-count">4</span>
+      </button>
+      <button class="subject-btn" onclick="showSubject('literacy', this)">
+        <span class="subject-btn-icon">📚</span>
+        <span class="subject-btn-text">Digital Literacy</span>
+        <span class="subject-count">4</span>
+      </button>
+      <button class="subject-btn" onclick="showSubject('research', this)">
+        <span class="subject-btn-icon">🔬</span>
+        <span class="subject-btn-text">Research</span>
+        <span class="subject-count">4</span>
+      </button>
+    </nav>
+
+    <!-- CONTENT AREA -->
+    <div class="tutorials-content" id="tutContent">
+      <!-- Injected by JS -->
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container reveal">
+    <h2>Ready to take your learning further?</h2>
+    <p>Enrol in our programmes and earn a real certificate — Day and Evening sessions available.</p>
+    <div class="cta-band-actions">
+      <a href="programs.html" class="btn btn-white btn-lg">Enrol Now</a>
+      <a href="games.html" class="btn btn-outline-white btn-lg">Test Your Knowledge</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Secure Today, Empower Tomorrow</span></div>
+          </a>
+          <p class="footer-brand-text">A hub of innovation and knowledge.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Learn</div>
+          <div class="footer-links">
+            <a href="tutorials.html" class="footer-link">Tutorials</a>
+            <a href="games.html" class="footer-link">Games &amp; Quizzes</a>
+            <a href="programs.html" class="footer-link">Our Services</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="research.html" class="footer-link">Research Journal</a>
+            <a href="internships.html" class="footer-link">Internships</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+250799431054" class="footer-link">📞 +250 799 431 054</a>
+            <a href="mailto:info@secureailabs.org" class="footer-link">✉ info@secureailabs.org</a>
+            <div class="footer-link" style="cursor:default;">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LESSON MODAL -->
+<div class="lesson-overlay" id="lessonOverlay">
+  <div class="lesson-modal" id="lessonModal">
+    <div class="lesson-header">
+      <div class="lesson-header-title" id="lessonTitle">Tutorial</div>
+      <button class="lesson-close" onclick="closeLesson()">✕</button>
+    </div>
+    <div id="lessonBody"></div>
+    <div class="lesson-footer">
+      <span style="font-size:0.82rem;color:var(--grey-400);">SecureAI Labs · Free Tutorial</span>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-outline btn-sm" onclick="closeLesson()">Close</button>
+        <a href="games.html" class="btn btn-primary btn-sm">Test Yourself →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+<script>
+/* ── Tutorial data ─────────────────────── */
+const SUBJECTS = {
+  networking: {
+    icon: '🌐', title: 'Networking & Infrastructure', kicker: 'Track 1 — Internship Programme',
+    color: 'var(--cambridge)',
+    tutorials: [
+      {
+        num:'01', title:'Introduction to Computer Networks', time:'10 min', level:'Beginner',
+        desc:'Learn what a network is, why we need it, and the different types of networks — LAN, WAN and the internet.',
+        steps:[
+          { h:'What is a Network?', p:'A computer network is a group of devices connected together to share data and resources. Examples include your home WiFi, a school computer lab and the internet itself.' },
+          { h:'Types of Networks', p:'<strong>LAN (Local Area Network)</strong> — connects devices in a small area like a home or office.<br><strong>WAN (Wide Area Network)</strong> — connects networks across large distances. The internet is the largest WAN.' },
+          { h:'How Devices Communicate', p:'Every device on a network has a unique IP address — like a home address. Data travels in small "packets" from sender to receiver, guided by routers and switches.' },
+          { h:'Key Devices', p:'<strong>Router</strong> — connects different networks together.<br><strong>Switch</strong> — connects devices within the same network.<br><strong>Hub</strong> — older device that broadcasts data to all connected devices.' }
+        ]
+      },
+      {
+        num:'02', title:'Understanding IP Addresses', time:'12 min', level:'Beginner',
+        desc:'Understand what IP addresses are, the difference between IPv4 and IPv6, and how subnetting works.',
+        steps:[
+          { h:'What is an IP Address?', p:'An IP address uniquely identifies a device on a network. Example: 192.168.1.1 is a common home router address.' },
+          { h:'IPv4 vs IPv6', p:'IPv4 uses 32-bit addresses (e.g. 192.168.1.1) with about 4 billion combinations. IPv6 uses 128-bit addresses to support many more devices worldwide.' },
+          { h:'Public vs Private IP', p:'<strong>Private IP</strong> — used inside your local network (e.g. 192.168.x.x).<br><strong>Public IP</strong> — visible on the internet, assigned by your internet provider.' },
+          { h:'What is DHCP?', p:'DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses to devices when they join a network — so you do not need to configure each device manually.' }
+        ],
+        code: `# Show your IP address on Linux/Mac\nip addr show\n\n# Show on Windows\nipconfig`
+      },
+      {
+        num:'03', title:'Introduction to IoT', time:'8 min', level:'Beginner',
+        desc:'Discover what IoT (Internet of Things) is, how connected devices work and real-world applications.',
+        steps:[
+          { h:'What is IoT?', p:'IoT stands for Internet of Things — the network of physical devices (thermostats, cameras, smart bulbs, sensors) connected to the internet and able to exchange data.' },
+          { h:'How IoT Devices Communicate', p:'IoT devices use communication protocols like MQTT, HTTP, Zigbee or Bluetooth to send data to cloud platforms or local servers for processing.' },
+          { h:'Real-World Applications', p:'Smart homes, industrial monitoring, agriculture sensors, medical devices and smart city infrastructure all rely on IoT technology.' },
+          { h:'Security in IoT', p:'IoT devices are often targets for hackers because they may have weak default passwords. Always change default credentials and keep firmware updated.' }
+        ]
+      },
+      {
+        num:'04', title:'Network Configuration Basics', time:'15 min', level:'Intermediate',
+        desc:'Learn how to configure a basic network — assigning IP addresses, setting up DNS and testing connectivity.',
+        steps:[
+          { h:'Static vs Dynamic IP', p:'A <strong>static IP</strong> is manually assigned and does not change. A <strong>dynamic IP</strong> is automatically assigned by DHCP and may change each session.' },
+          { h:'DNS Configuration', p:'DNS (Domain Name System) translates domain names (e.g. google.com) into IP addresses. You can set your DNS server to 8.8.8.8 (Google) or 1.1.1.1 (Cloudflare).' },
+          { h:'Testing Connectivity', p:'Use the <code>ping</code> command to test if a device is reachable. Use <code>traceroute</code> (Linux/Mac) or <code>tracert</code> (Windows) to trace the path packets take.' }
+        ],
+        code: `# Ping a host\nping 8.8.8.8\n\n# Trace route to a host\ntraceroute google.com\n\n# Check open ports\nnmap -sP 192.168.1.0/24`
+      }
+    ]
+  },
+  software: {
+    icon: '💻', title: 'Software Engineering', kicker: 'Track 2 — Internship Programme',
+    color: 'var(--teal)',
+    tutorials: [
+      {
+        num:'01', title:'Python Basics for Beginners', time:'15 min', level:'Beginner',
+        desc:'Get started with Python — variables, data types, loops and functions used in real software projects.',
+        steps:[
+          { h:'Why Python?', p:'Python is one of the most popular programming languages in the world. It is readable, versatile and used in web development, automation, AI and cybersecurity.' },
+          { h:'Variables and Data Types', p:'Variables store information. Python has strings, integers, floats, booleans and lists as basic data types.' },
+          { h:'Loops and Conditions', p:'Use <code>if</code> statements to make decisions and <code>for</code>/<code>while</code> loops to repeat actions.' },
+          { h:'Functions', p:'Functions are reusable blocks of code. Define with <code>def</code> and call them whenever needed.' }
+        ],
+        code: `# Variables\nname = "SecureAI"\nage = 5\n\n# Condition\nif age > 3:\n    print("We are growing!")\n\n# Loop\nfor i in range(5):\n    print(f"Step {i}")\n\n# Function\ndef greet(user):\n    return f"Hello, {user}!"\n\nprint(greet("Rwanda"))`
+      },
+      {
+        num:'02', title:'React.js Fundamentals', time:'20 min', level:'Intermediate',
+        desc:'Understand React components, props, state and how to build modern user interfaces.',
+        steps:[
+          { h:'What is React?', p:'React is a JavaScript library for building user interfaces. It uses reusable components — independent pieces of UI that manage their own content.' },
+          { h:'Components', p:'A React component is a JavaScript function that returns HTML-like JSX. Components can be composed together to build complex UIs.' },
+          { h:'Props and State', p:'<strong>Props</strong> pass data from parent to child components. <strong>State</strong> is data managed inside a component that can change over time.' },
+          { h:'The useState Hook', p:'<code>useState</code> lets you add state to functional components. When state changes, React automatically re-renders the component.' }
+        ],
+        code: `import { useState } from 'react';\n\n// A simple counter component\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}\n\nexport default Counter;`
+      },
+      {
+        num:'03', title:'Node.js and REST APIs', time:'18 min', level:'Intermediate',
+        desc:'Build a basic Node.js server and create REST API endpoints for web applications.',
+        steps:[
+          { h:'What is Node.js?', p:'Node.js lets you run JavaScript on the server side. It is fast, event-driven and widely used to build APIs and backend services.' },
+          { h:'Express Framework', p:'Express.js is a minimal Node.js framework that makes it easy to create web servers and define API routes.' },
+          { h:'HTTP Methods', p:'REST APIs use HTTP methods: <strong>GET</strong> to retrieve, <strong>POST</strong> to create, <strong>PUT</strong> to update and <strong>DELETE</strong> to remove data.' },
+          { h:'Connecting to a Database', p:'APIs typically connect to databases (MongoDB, PostgreSQL) to store and retrieve data. Use packages like <code>mongoose</code> or <code>pg</code>.' }
+        ],
+        code: `const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// GET - retrieve all items\napp.get('/api/items', (req, res) => {\n  res.json({ items: ['IoT', 'Networking', 'Python'] });\n});\n\n// POST - add an item\napp.post('/api/items', (req, res) => {\n  const { name } = req.body;\n  res.json({ message: \`Added \${name}\` });\n});\n\napp.listen(3000, () => console.log('Server running'));`
+      },
+      {
+        num:'04', title:'Digital Marketing Basics', time:'12 min', level:'Beginner',
+        desc:'Learn the essentials of digital marketing — content strategy, social media and online presence.',
+        steps:[
+          { h:'What is Digital Marketing?', p:'Digital marketing promotes products or services using digital channels — social media, email, search engines and websites.' },
+          { h:'Content Strategy', p:'A content strategy defines what you post, when and for whom. Good content educates, entertains or solves a problem for your audience.' },
+          { h:'Social Media Marketing', p:'Platforms like Instagram, TikTok, LinkedIn and X (Twitter) each have different audiences. Choose platforms where your audience spends time.' },
+          { h:'SEO Basics', p:'SEO (Search Engine Optimisation) helps your website appear in search results. Use relevant keywords, write useful content and ensure fast page loading.' }
+        ]
+      }
+    ]
+  },
+  cisco: {
+    icon: '📡', title: 'Cisco Training Package', kicker: 'Official Cisco Networking Academy',
+    color: 'var(--teal)',
+    tutorials: [
+      {
+        num:'01', title:'Introduction to Cisco Certifications', time:'10 min', level:'Beginner',
+        desc:'Overview of the 5 Cisco pathways offered at SecureAI Labs and what each certification prepares you for.',
+        steps:[
+          { h:'Why Cisco Certifications?', p:'Cisco certifications are globally recognised by employers. They prove your ability to work with networking, security and automation technologies used in real companies.' },
+          { h:'The 5 Pathways at SecureAI Labs', p:'1. IT Support Specialist<br>2. Cybersecurity Defence Analyst<br>3. Ethical Hacker<br>4. Network Technician<br>5. Introduction to Cyber Security' },
+          { h:'Session Options', p:'Day sessions: 09:00–12:00 and 14:00–17:00. Evening online: 18:00–20:00. Choose the schedule that fits your life.' },
+          { h:'What You Get', p:'Upon completion you receive a Cisco Certificate + Exam Voucher — internationally recognised and verifiable directly through Cisco.' }
+        ]
+      },
+      {
+        num:'02', title:'Cybersecurity Fundamentals', time:'14 min', level:'Beginner',
+        desc:'Understand the core concepts behind cybersecurity — threats, defences and how organisations protect their systems.',
+        steps:[
+          { h:'What is Cybersecurity?', p:'Cybersecurity is the practice of protecting systems, networks and data from digital attacks, damage or unauthorised access.' },
+          { h:'Common Threats', p:'<strong>Malware</strong> — malicious software.<br><strong>Phishing</strong> — tricking people to reveal information.<br><strong>DDoS</strong> — flooding servers to cause downtime.<br><strong>Ransomware</strong> — encrypting files and demanding payment.' },
+          { h:'Defence Layers', p:'Good security uses multiple layers: firewalls, antivirus, encryption, strong passwords, 2FA, user training and regular software updates.' },
+          { h:'Security Operations Centre (SOC)', p:'A SOC is a team that monitors, detects and responds to security incidents in real time. The Cybersecurity Defence Analyst pathway prepares you for SOC roles.' }
+        ]
+      },
+      {
+        num:'03', title:'Ethical Hacking — Getting Started', time:'16 min', level:'Intermediate',
+        desc:'Learn what ethical hacking is, the legal framework and the methodology used in penetration testing.',
+        steps:[
+          { h:'What is Ethical Hacking?', p:'Ethical hacking (penetration testing) is the authorised process of testing a system for vulnerabilities — the same techniques used by attackers, but with permission and for protection.' },
+          { h:'The Legal Framework', p:'Always get written permission before testing any system. Unauthorised access is illegal. Ethical hackers work under a formal scope-of-work agreement.' },
+          { h:'Penetration Testing Methodology', p:'1. Reconnaissance — gather information.<br>2. Scanning — identify open ports and services.<br>3. Exploitation — attempt to exploit vulnerabilities.<br>4. Post-Exploitation — assess what access was gained.<br>5. Reporting — document findings and recommendations.' },
+          { h:'Tools You Will Learn', p:'Kali Linux, Nmap, Metasploit, Burp Suite and Wireshark are industry-standard tools used in ethical hacking and taught in the Cisco pathway.' }
+        ],
+        code: `# Scan a network for active hosts (with permission)\nnmap -sn 192.168.1.0/24\n\n# Scan open ports on a specific host\nnmap -sV 192.168.1.100\n\n# Always ensure you have written permission first`
+      },
+      {
+        num:'04', title:'Network Technician Essentials', time:'12 min', level:'Beginner',
+        desc:'The core skills required for a career as a network technician — routing, switching and infrastructure setup.',
+        steps:[
+          { h:'The Role of a Network Technician', p:'Network technicians install, configure and maintain networking equipment. They troubleshoot connectivity issues and ensure reliable network performance.' },
+          { h:'Routing Basics', p:'Routers forward data packets between networks using routing tables. Protocols like OSPF and BGP determine the best paths for data.' },
+          { h:'Switching Basics', p:'Switches connect devices within a LAN. They learn MAC addresses and forward data only to the intended recipient — unlike hubs which broadcast to everyone.' },
+          { h:'Troubleshooting', p:'Use <code>ping</code>, <code>ipconfig</code>, <code>netstat</code> and cable testers to diagnose and fix common network problems.' }
+        ]
+      }
+    ]
+  },
+  literacy: {
+    icon: '📚', title: 'Digital Literacy', kicker: 'Microsoft Office & Digital Skills',
+    color: 'var(--green)',
+    tutorials: [
+      {
+        num:'01', title:'Microsoft Word — Getting Started', time:'10 min', level:'Beginner',
+        desc:'Learn how to create, format and save documents in Microsoft Word from scratch.',
+        steps:[
+          { h:'Opening Word and Creating a Document', p:'Open Microsoft Word → click "New Document". Type your content. Use the ribbon at the top to access formatting tools.' },
+          { h:'Basic Formatting', p:'Select text and use <strong>Ctrl+B</strong> for bold, <strong>Ctrl+I</strong> for italic, <strong>Ctrl+U</strong> for underline. Change font and size from the Home tab.' },
+          { h:'Saving Your Work', p:'Press <strong>Ctrl+S</strong> to save. Choose <strong>Save As</strong> to save in a new location or format. Save as PDF to share documents that cannot be edited.' },
+          { h:'Useful Shortcuts', p:'Ctrl+Z — Undo | Ctrl+Y — Redo | Ctrl+A — Select All | Ctrl+C — Copy | Ctrl+V — Paste | Ctrl+P — Print' }
+        ]
+      },
+      {
+        num:'02', title:'Microsoft Excel — Formulas & Functions', time:'14 min', level:'Beginner',
+        desc:'Master the essential Excel formulas for data analysis, calculation and reporting.',
+        steps:[
+          { h:'Understanding Cells and Ranges', p:'Each cell has an address (column letter + row number, e.g. B3). A range is a group of cells (e.g. A1:A10). Formulas always start with <code>=</code>.' },
+          { h:'Essential Formulas', p:'<strong>=SUM(A1:A10)</strong> — adds all values.<br><strong>=AVERAGE(A1:A10)</strong> — calculates the mean.<br><strong>=MAX(A1:A10)</strong> / <strong>=MIN(A1:A10)</strong> — largest / smallest value.<br><strong>=COUNT(A1:A10)</strong> — counts cells with numbers.' },
+          { h:'IF Function', p:'<code>=IF(B2>50,"Pass","Fail")</code> — tests a condition and returns one of two values. Extremely useful for grading, targets and decisions.' },
+          { h:'Charts and Visualisation', p:'Select your data → Insert tab → Chart. Choose Bar, Line or Pie chart. Give your chart a title and label your axes clearly.' }
+        ]
+      },
+      {
+        num:'03', title:'Microsoft PowerPoint — Professional Presentations', time:'12 min', level:'Beginner',
+        desc:'Design clear, professional presentations with strong visual structure and impactful slides.',
+        steps:[
+          { h:'The Golden Rule of Slides', p:'Each slide should communicate ONE key idea. Use large font (minimum 24pt), few bullet points and strong visuals rather than dense text.' },
+          { h:'Choosing a Theme', p:'Go to Design tab → choose a theme. Stick to 2–3 colours throughout. Your first slide should have the title and your name or logo.' },
+          { h:'Adding Animations and Transitions', p:'Animations apply to individual elements (text, images). Transitions apply between slides. Use sparingly — too many animations distract from your message.' },
+          { h:'Presenting Confidently', p:'Press <strong>F5</strong> to start your slideshow from the beginning. <strong>Escape</strong> to exit. Use <strong>B</strong> to black out the screen if you want the audience to focus on you.' }
+        ]
+      },
+      {
+        num:'04', title:'Internet Safety and Digital Hygiene', time:'8 min', level:'Beginner',
+        desc:'Stay safe online — passwords, privacy settings, recognising scams and protecting your data.',
+        steps:[
+          { h:'Strong Passwords', p:'Use at least 12 characters mixing letters, numbers and symbols. Never reuse passwords across sites. Use a password manager like Bitwarden (free).' },
+          { h:'Recognising Phishing', p:'Phishing emails often claim urgency ("Your account will be closed!"), have misspellings and ask for personal information. Never click suspicious links.' },
+          { h:'Privacy Settings', p:'Review privacy settings on all social media accounts. Limit who can see your posts, location and personal details.' },
+          { h:'Safe Browsing', p:'Look for <strong>https://</strong> in website addresses. Avoid downloading files from unknown sources. Keep your browser and antivirus updated.' }
+        ]
+      }
+    ]
+  },
+  research: {
+    icon: '🔬', title: 'Research Services & JSCI Journal', kicker: 'Academic Research Support',
+    color: 'var(--amber)',
+    tutorials: [
+      {
+        num:'01', title:'How to Write a Research Article', time:'18 min', level:'Intermediate',
+        desc:'A step-by-step guide to writing a publishable research article for the JSCI Journal.',
+        steps:[
+          { h:'Structure of a Research Article', p:'A standard research article contains: Abstract, Introduction, Literature Review, Methodology, Results, Discussion, Conclusion and References.' },
+          { h:'Writing a Strong Abstract', p:'The abstract (150–250 words) summarises the entire paper: what you studied, how, what you found and why it matters. Write it last.' },
+          { h:'Literature Review', p:'Review existing research related to your topic. Use Google Scholar, JSTOR or ResearchGate. Cite all sources correctly using APA or IEEE format.' },
+          { h:'Methodology', p:'Describe exactly how you conducted your research — data collection methods, tools used, sample size and analysis techniques — so others can replicate it.' }
+        ]
+      },
+      {
+        num:'02', title:'Thesis Writing for Masters & Undergraduates', time:'20 min', level:'Advanced',
+        desc:'Guidance for writing a high-quality thesis — from proposal to final submission.',
+        steps:[
+          { h:'Choosing a Research Topic', p:'Select a topic that is specific, feasible and relevant to your field. A good research question is one that has not been fully answered yet.' },
+          { h:'The Research Proposal', p:'Before writing your thesis, submit a proposal: problem statement, objectives, research questions, methodology and expected contribution to knowledge.' },
+          { h:'Data Collection and Analysis', p:'Primary data (surveys, interviews, experiments) vs Secondary data (existing literature and datasets). Choose the method that fits your research question.' },
+          { h:'Formatting and Referencing', p:'Follow your institution\'s formatting guide. Use a reference manager like Mendeley or Zotero to manage citations automatically.' }
+        ]
+      },
+      {
+        num:'03', title:'Data Analysis & Visualization', time:'15 min', level:'Intermediate',
+        desc:'Learn how to analyse research data and create clear visualisations using accessible tools.',
+        steps:[
+          { h:'Types of Data Analysis', p:'<strong>Descriptive</strong> — summarises data (averages, percentages).<br><strong>Inferential</strong> — draws conclusions about a population from a sample.<br><strong>Qualitative</strong> — analyses themes in text or interview data.' },
+          { h:'Tools for Analysis', p:'Microsoft Excel for basic analysis. SPSS or R for statistical analysis. Python (pandas, matplotlib) for advanced data processing and visualisation.' },
+          { h:'Creating Effective Charts', p:'Bar charts for comparison. Line charts for trends over time. Pie charts for proportions (use sparingly). Always label axes and add a chart title.' },
+          { h:'Research Validation', p:'Validate your results by checking for data entry errors, testing your hypothesis with appropriate statistical tests and comparing with related studies.' }
+        ],
+        code: `# Python — basic data analysis\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load data\ndf = pd.read_csv('research_data.csv')\n\n# Descriptive statistics\nprint(df.describe())\n\n# Plot a bar chart\ndf['category'].value_counts().plot(kind='bar')\nplt.title('Research Data Distribution')\nplt.tight_layout()\nplt.show()`
+      },
+      {
+        num:'04', title:'How to Submit to the JSCI Journal', time:'8 min', level:'Beginner',
+        desc:'Step-by-step guide to submitting your research paper to the JSCI Journal — free until December 2026.',
+        steps:[
+          { h:'About JSCI', p:'The Journal of Secure Computing and Intelligence (JSCI) is published by SecureAI Labs. It is open access, indexed on Google Scholar and assigns ISSN and DOI to every paper.' },
+          { h:'Submission Requirements', p:'Your paper must be original, not published elsewhere, properly referenced and formatted. Maximum 12,000 words for full papers; 4,000 for short communications.' },
+          { h:'Submission Steps', p:'1. Prepare your manuscript using our Word or LaTeX template.<br>2. Send to <a href="mailto:journal@secureailabs.org">journal@secureailabs.org</a>.<br>3. Include a cover letter with your name, institution and topic area.' },
+          { h:'What Happens Next', p:'You will receive acknowledgement within 48 hours. Peer review takes 4–6 weeks. If accepted, your paper will be published open access with ISSN, DOI and Google Scholar indexing — free of charge until December 2026.' }
+        ]
+      }
+    ]
+  }
+};
+
+/* ── Render subject ─────────────────────── */
+function showSubject(id, btn) {
+  document.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const s = SUBJECTS[id];
+  const grid = s.tutorials.map(t => `
+    <div class="tut-card reveal">
+      <div class="tut-card-top">
+        <div class="tut-num">${t.num}</div>
+        <div>
+          <div class="tut-title">${t.title}</div>
+        </div>
+      </div>
+      <div class="tut-card-body">
+        <div class="tut-desc">${t.desc}</div>
+        <div class="tut-pills">
+          <span class="tut-pill">🕐 ${t.time}</span>
+          <span class="tut-pill">${t.level}</span>
+          <span class="tut-pill">${t.steps.length} steps</span>
+          ${t.code ? '<span class="tut-pill">💻 Code</span>' : ''}
+        </div>
+      </div>
+      <div class="tut-card-footer">
+        <button class="btn btn-primary btn-sm" onclick="openLesson('${id}',${s.tutorials.indexOf(t)})">Start Lesson →</button>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('tutContent').innerHTML = `
+    <div class="tut-section-header">
+      <div class="tut-section-icon">${s.icon}</div>
+      <div>
+        <div class="tut-section-kicker">${s.kicker}</div>
+        <h2 class="tut-section-title">${s.title}</h2>
+      </div>
+    </div>
+    <div class="grid-2">${grid}</div>
+  `;
+
+  // Re-run reveal observer on new elements
+  document.querySelectorAll('#tutContent .reveal').forEach(el => {
+    el.classList.add('visible');
+  });
+}
+
+/* ── Open lesson modal ─────────────────── */
+function openLesson(subjectId, tutIdx) {
+  const s   = SUBJECTS[subjectId];
+  const tut = s.tutorials[tutIdx];
+  document.getElementById('lessonTitle').textContent = tut.title;
+
+  const stepsHTML = tut.steps.map((step, i) => `
+    <div class="lesson-step">
+      <div class="lesson-step-num">${i + 1}</div>
+      <div class="lesson-step-content">
+        <h4>${step.h}</h4>
+        <p>${step.p}</p>
+      </div>
+    </div>
+  `).join('');
+
+  const codeHTML = tut.code ? `
+    <div class="lesson-tip">💡 Code example — read carefully and try it yourself</div>
+    <div class="lesson-code">${tut.code
+      .replace(/\n/g, '<br>')
+      .replace(/(import|from|def|return|print|const|let|var|function|if|else|for|while|app\.(get|post|listen)|require)/g, '<span class="kw">$1</span>')
+      .replace(/'[^']*'/g, s => `<span class="str">${s}</span>`)
+      .replace(/"[^"]*"/g, s => `<span class="str">${s}</span>`)
+      .replace(/#[^\n<]*/g, s => `<span class="cmt">${s}</span>`)
+    }</div>
+  ` : '';
+
+  document.getElementById('lessonBody').innerHTML = `
+    <div class="lesson-body">
+      <div style="background:var(--cambridge-pale);border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:0.88rem;color:var(--cambridge-deeper);">
+        <strong>${s.icon} ${s.kicker}</strong> — ${tut.time} · ${tut.level} · ${tut.steps.length} steps
+      </div>
+      ${stepsHTML}
+      ${codeHTML}
+    </div>
+  `;
+
+  document.getElementById('lessonOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLesson() {
+  document.getElementById('lessonOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Init first subject
+window.addEventListener('DOMContentLoaded', () => {
+  showSubject('networking', document.querySelector('.subject-btn'));
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLesson(); });
+</script>
+</body>
+</html>

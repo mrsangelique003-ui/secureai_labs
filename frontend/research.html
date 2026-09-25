@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research &amp; JSCI Journal — SecureAI Labs</title>
+  <meta name="description" content="The SecureAI Labs Journal of Secure Computing and Intelligence (JSCI) — open access, ISSN, DOI, Google Scholar indexed. Submit your research free until December 2026." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo.svg" />
+</head>
+<body class="page-body">
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">About Us</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="research.html">Research Journal</a><span class="utility-sep">|</span>
+      <a href="internships.html">Internships</a>
+    </div>
+    <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="research.html" selected>English</option>
+          <option value="fr/research.html">Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Secure Today, Empower Tomorrow</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="about.html" class="dropdown-link">About SecureAI Labs</a>
+          <a href="about.html#mission" class="dropdown-link">Mission &amp; Vision</a>
+          <a href="about.html#advantages" class="dropdown-link">Our Advantages</a>
+          <a href="about.html#team" class="dropdown-link">Our Team</a>
+          <a href="about.html#partners" class="dropdown-link">Our Partners</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="programs.html" class="nav-link">Services <span class="nav-arrow"></span></a>
+        <div class="mega-dropdown">
+          <div class="mega-col">
+            <div class="mega-col-title">Training</div>
+            <a href="programs.html#internship" class="mega-link">
+              <div class="mega-link-icon">💼</div>
+              <div class="mega-link-body"><span class="mega-link-title">Internship Programme</span><span class="mega-link-desc">Networking &amp; Software Engineering</span></div>
+            </a>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">🌐</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cisco Training Package</span><span class="mega-link-desc">5 official Cisco pathways</span></div>
+            </a>
+            <a href="programs.html#literacy" class="mega-link">
+              <div class="mega-link-icon">💻</div>
+              <div class="mega-link-body"><span class="mega-link-title">Digital Literacy</span><span class="mega-link-desc">Word, Excel, PowerPoint</span></div>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Research &amp; Learn</div>
+            <a href="programs.html#research-svc" class="mega-link">
+              <div class="mega-link-icon">🔬</div>
+              <div class="mega-link-body"><span class="mega-link-title">Research Services</span><span class="mega-link-desc">Articles, Thesis &amp; support</span></div>
+            </a>
+            <a href="tutorials.html" class="mega-link">
+              <div class="mega-link-icon">📖</div>
+              <div class="mega-link-body"><span class="mega-link-title">Tutorials</span><span class="mega-link-desc">Step-by-step learning guides</span></div>
+            </a>
+            <a href="games.html" class="mega-link">
+              <div class="mega-link-icon">🎮</div>
+              <div class="mega-link-body"><span class="mega-link-title">Games &amp; Quizzes</span><span class="mega-link-desc">Test your knowledge interactively</span></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="internships.html" class="nav-link">Internships <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="internships.html" class="dropdown-link">How It Works</a>
+          <a href="internships.html#open-roles" class="dropdown-link">Open Positions</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="research.html" class="nav-link active">Research <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="research.html" class="dropdown-link">Research Journal (JSCI)</a>
+          <a href="research.html#journal" class="dropdown-link">Submit a Paper</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+      <li class="nav-item">
+        <a href="tutorials.html" class="nav-link">Learn <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="tutorials.html" class="dropdown-link">📖 Tutorials</a>
+          <a href="games.html" class="dropdown-link">🎮 Games &amp; Quizzes</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Submit Paper</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Services</a>
+    <a href="internships.html" class="mobile-nav-link">Internships</a>
+    <a href="research.html" class="mobile-nav-link active">Research</a>
+    <a href="tutorials.html" class="mobile-nav-link">Tutorials</a>
+    <a href="games.html" class="mobile-nav-link">Games</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-actions"><a href="contact.html" class="btn btn-primary">Submit Paper</a></div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <h3 style="margin-bottom:16px;">Search SecureAI Labs</h3>
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Search research, services..." />
+      <button class="search-submit">Search</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Close</button>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Research &amp; JSCI Journal</span>
+    </div>
+    <h1 class="anim-fade-up anim-delay-1">Journal of Secure Computing and Intelligence</h1>
+    <p class="lead anim-fade-up anim-delay-2">Open-access, peer-reviewed journal published by SecureAI Labs. Every paper receives an ISSN, DOI and Google Scholar indexing. <strong style="color:rgba(255,255,255,0.9);">Free to publish until December 2026.</strong></p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;" class="anim-fade-up anim-delay-3">
+      <a href="#journal" class="btn btn-white btn-lg">Submit Your Research</a>
+      <a href="programs.html#research-svc" class="btn btn-outline-white btn-lg">Research Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- JSCI QUICK FACTS -->
+<div style="background:var(--cambridge);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+      <div style="padding:20px 24px;border-right:1px solid rgba(255,255,255,0.2);text-align:center;">
+        <div style="font-size:1.4rem;font-weight:800;font-family:var(--font-serif);color:var(--white);">Free</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;">Until Dec 2026</div>
+      </div>
+      <div style="padding:20px 24px;border-right:1px solid rgba(255,255,255,0.2);text-align:center;">
+        <div style="font-size:1.4rem;font-weight:800;font-family:var(--font-serif);color:var(--white);">ISSN</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;">Registered Journal</div>
+      </div>
+      <div style="padding:20px 24px;border-right:1px solid rgba(255,255,255,0.2);text-align:center;">
+        <div style="font-size:1.4rem;font-weight:800;font-family:var(--font-serif);color:var(--white);">DOI</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;">Per Article</div>
+      </div>
+      <div style="padding:20px 24px;text-align:center;">
+        <div style="font-size:1.4rem;font-weight:800;font-family:var(--font-serif);color:var(--white);">Scholar</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;">Google Scholar Indexed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH AREAS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-kicker">Scope &amp; Focus Areas</span>
+      <h2 class="section-title">What we publish</h2>
+      <p class="section-lead">We accept high-quality original research across six core areas of AI security and digital safety.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon">🛡️</div>
+        <h3 class="card-title">AI Security &amp; Adversarial ML</h3>
+        <p class="card-text">Attacks against AI systems, adversarial examples, model robustness, prompt injection and defences for machine learning pipelines.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon card-icon-teal">🔒</div>
+        <h3 class="card-title">Privacy-Preserving AI</h3>
+        <p class="card-text">Federated learning, differential privacy, homomorphic encryption and techniques enabling collaborative AI without exposing sensitive data.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon">⚖️</div>
+        <h3 class="card-title">AI Ethics &amp; Fairness</h3>
+        <p class="card-text">Bias detection, algorithmic fairness, accountability, transparency and the social impact of AI in high-stakes domains.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon">🌐</div>
+        <h3 class="card-title">Network &amp; Infrastructure Security</h3>
+        <p class="card-text">AI-driven threat intelligence, intrusion detection, zero-trust architecture and securing critical infrastructure.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon card-icon-teal">🧬</div>
+        <h3 class="card-title">AI in Healthcare Security</h3>
+        <p class="card-text">Privacy-preserving medical AI, securing health data ecosystems and safe deployment of clinical AI systems.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon">📜</div>
+        <h3 class="card-title">Cybersecurity Policy &amp; Law</h3>
+        <p class="card-text">Digital sovereignty, international AI governance frameworks, cyber law and policy for emerging technologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH CONSULTANCY -->
+<section class="section" style="background:var(--cambridge-deeper);">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;">
+      <div class="section-header center reveal">
+        <span class="section-kicker" style="color:rgba(255,255,255,0.6);">Research Consultancy Services</span>
+        <h2 class="section-title" style="color:var(--white);">We Can Help You</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;" class="reveal">
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-md);padding:18px;display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cambridge);flex-shrink:0;"></div>
+          <span style="font-size:0.92rem;font-weight:600;color:var(--white);">Data Analysis &amp; Visualization</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-md);padding:18px;display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cambridge);flex-shrink:0;"></div>
+          <span style="font-size:0.92rem;font-weight:600;color:var(--white);">Research Validation &amp; Results Verification</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-md);padding:18px;display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cambridge);flex-shrink:0;"></div>
+          <span style="font-size:0.92rem;font-weight:600;color:var(--white);">Thesis &amp; Dissertation Support</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-md);padding:18px;display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cambridge);flex-shrink:0;"></div>
+          <span style="font-size:0.92rem;font-weight:600;color:var(--white);">Journal Publication Guidance</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" class="reveal">
+        <a href="contact.html" class="btn btn-white">Contact Us</a>
+        <a href="mailto:journal@secureailabs.org" class="btn btn-outline-white" style="font-size:0.85rem;">journal@secureailabs.org</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT YOUR PAPER -->
+<section class="section" id="journal">
+  <div class="container">
+    <div class="layout-with-sidebar">
+
+      <div>
+        <span class="section-kicker">For Authors</span>
+        <h2 class="section-title reveal">Submit to the JSCI Journal</h2>
+        <p style="margin-bottom:28px;color:var(--grey-500);line-height:1.75;" class="reveal">We welcome original research, review articles, case studies and position papers from academics, practitioners and students worldwide. All submissions undergo double-blind peer review. Publication is <strong>free until December 2026</strong>.</p>
+
+        <div class="process-steps reveal" style="grid-template-columns:repeat(2,1fr);gap:24px;">
+          <div class="process-step" style="text-align:left;padding:0;">
+            <div class="process-num">01</div>
+            <div class="process-title">Prepare Your Manuscript</div>
+            <p class="process-desc">Format using our Word template. Max 12,000 words for full papers; 4,000 for short communications.</p>
+          </div>
+          <div class="process-step" style="text-align:left;padding:0;">
+            <div class="process-num">02</div>
+            <div class="process-title">Submit by Email</div>
+            <p class="process-desc">Send to <a href="mailto:journal@secureailabs.org">journal@secureailabs.org</a> with your cover letter, keywords and institution.</p>
+          </div>
+          <div class="process-step" style="text-align:left;padding:0;">
+            <div class="process-num">03</div>
+            <div class="process-title">Peer Review (4–6 weeks)</div>
+            <p class="process-desc">Double-blind review by domain experts. Constructive feedback provided regardless of outcome.</p>
+          </div>
+          <div class="process-step" style="text-align:left;padding:0;">
+            <div class="process-num">04</div>
+            <div class="process-title">Publication &amp; Indexing</div>
+            <p class="process-desc">Accepted papers published open-access with ISSN, DOI and Google Scholar indexing — at no cost.</p>
+          </div>
+        </div>
+
+        <!-- Submission form -->
+        <div style="background:var(--grey-50);border:1px solid var(--grey-200);border-radius:var(--r-lg);padding:32px;margin-top:36px;" class="reveal">
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;margin-bottom:6px;">Submit a Paper</h3>
+          <p style="font-size:0.85rem;color:var(--grey-400);margin-bottom:24px;">Free submission · No publication fees · Open access on acceptance</p>
+          <form id="submissionForm" onsubmit="return handleSubmit(event)">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Author Name <span class="form-required">*</span></label>
+                <input type="text" class="form-input" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email <span class="form-required">*</span></label>
+                <input type="email" class="form-input" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Paper Title <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Title of your research paper" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Research Area <span class="form-required">*</span></label>
+              <select class="form-select" required>
+                <option value="" disabled selected>Select primary area</option>
+                <option>AI Security &amp; Adversarial ML</option>
+                <option>Privacy-Preserving AI</option>
+                <option>AI Ethics &amp; Fairness</option>
+                <option>Network &amp; Infrastructure Security</option>
+                <option>AI in Healthcare Security</option>
+                <option>Cybersecurity Policy &amp; Law</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Abstract <span class="form-required">*</span></label>
+              <textarea class="form-textarea" placeholder="150–300 word abstract of your paper..." required style="min-height:100px;"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Institution</label>
+              <input type="text" class="form-input" placeholder="University or organisation" />
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit for Review →</button>
+          </form>
+          <div id="submitSuccess" style="display:none;background:var(--teal-light);border:1px solid var(--teal);border-radius:var(--r-md);padding:24px;text-align:center;margin-top:16px;">
+            <div style="font-size:2rem;margin-bottom:8px;">✓</div>
+            <h4 style="color:var(--teal);margin-bottom:6px;">Submission Received</h4>
+            <p style="font-size:0.9rem;color:var(--grey-500);margin:0;">We will acknowledge your submission within 48 hours. Check <a href="mailto:journal@secureailabs.org">journal@secureailabs.org</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <h4>Journal Information</h4>
+          <div style="font-size:0.85rem;color:var(--grey-500);display:flex;flex-direction:column;gap:10px;">
+            <div>📋 <strong>Type:</strong> Open Access Journal</div>
+            <div>🔢 <strong>ISSN:</strong> Assigned per issue</div>
+            <div>🔗 <strong>DOI:</strong> Assigned per article</div>
+            <div>🎓 <strong>Indexing:</strong> Google Scholar</div>
+            <div>📅 <strong>Review time:</strong> 4–6 weeks</div>
+            <div>💰 <strong>Cost:</strong> Free until Dec 2026</div>
+          </div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--grey-200);">
+            <a href="mailto:journal@secureailabs.org" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">✉ journal@secureailabs.org</a>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <h4>Research Services</h4>
+          <a href="programs.html#research-svc" class="sidebar-link">Research Article Support</a>
+          <a href="programs.html#research-svc" class="sidebar-link">Thesis Book (Masters)</a>
+          <a href="programs.html#research-svc" class="sidebar-link">Thesis Book (Undergraduate)</a>
+          <a href="programs.html#research-svc" class="sidebar-link">Data Analysis &amp; Visualization</a>
+          <a href="programs.html#research-svc" class="sidebar-link">Publication Guidance</a>
+        </div>
+        <div class="sidebar-box">
+          <h4>Contact Research Team</h4>
+          <div style="font-size:0.85rem;color:var(--grey-500);line-height:1.8;">
+            <a href="tel:+250799431054" style="display:block;color:var(--cambridge);text-decoration:none;">📞 +250 799 431 054</a>
+            <a href="tel:+250791503203" style="display:block;color:var(--cambridge);text-decoration:none;">📞 +250 791 503 203</a>
+            <a href="mailto:journal@secureailabs.org" style="display:block;color:var(--cambridge);text-decoration:none;">✉ journal@secureailabs.org</a>
+            <div style="margin-top:6px;color:var(--grey-500);">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="container reveal">
+    <h2>Ready to publish your research?</h2>
+    <p>Submit to JSCI today — free publication, open access, globally indexed.</p>
+    <div class="cta-band-actions">
+      <a href="#journal" class="btn btn-white btn-lg">Submit Now</a>
+      <a href="tutorials.html" class="btn btn-outline-white btn-lg">Research Tutorials</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Secure Today, Empower Tomorrow</span></div>
+          </a>
+          <p class="footer-brand-text">A hub of innovation and knowledge.</p>
+          <div class="footer-social-title">Follow Us</div>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@secureai.lab" class="social-icon" target="_blank">🎵</a>
+            <a href="https://www.instagram.com/secureairwanda" class="social-icon" target="_blank">📸</a>
+            <a href="https://x.com/SecureAILabRwa" class="social-icon" target="_blank">𝕏</a>
+            <a href="https://linkedin.com/company/secure-ai-labs" class="social-icon" target="_blank">in</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Research</div>
+          <div class="footer-links">
+            <a href="research.html#journal" class="footer-link">Submit to JSCI</a>
+            <a href="programs.html#research-svc" class="footer-link">Research Services</a>
+            <a href="tutorials.html" class="footer-link">Research Tutorials</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="programs.html" class="footer-link">Services</a>
+            <a href="internships.html" class="footer-link">Internships</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+250799431054" class="footer-link">📞 +250 799 431 054</a>
+            <a href="mailto:info@secureailabs.org" class="footer-link">✉ info@secureailabs.org</a>
+            <a href="mailto:journal@secureailabs.org" class="footer-link">✉ journal@secureailabs.org</a>
+            <div class="footer-link" style="cursor:default;">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+<script src="js/api.js"></script>
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('submissionForm');
+    const btn  = form.querySelector('[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    const data = {
+      author_name:   form.querySelector('[placeholder*="name" i], [placeholder*="auteur" i]')?.value || '',
+      email:         form.querySelector('[type="email"]')?.value || '',
+      title:         form.querySelector('[placeholder*="title" i], [placeholder*="titre" i]')?.value || '',
+      research_area: form.querySelector('select')?.value || '',
+      abstract:      form.querySelector('textarea')?.value || '',
+      institution:   form.querySelector('[placeholder*="institution" i]')?.value || ''
+    };
+
+    submitResearchPaper(form).then(result => {
+      btn.textContent = origText;
+      btn.disabled = false;
+      form.style.display = 'none';
+      const s = document.getElementById('submitSuccess');
+      if (s) {
+        s.style.display = 'block';
+        if (result.data && result.data.reference) {
+          s.querySelector('p').textContent = `Your submission reference: ${result.data.reference}. We will acknowledge within 48 hours.`;
+        }
+      }
+    }).catch(() => {
+      btn.textContent = origText;
+      btn.disabled = false;
+      form.style.display = 'none';
+      const s = document.getElementById('submitSuccess');
+      if (s) s.style.display = 'block';
+    });
+  }
+</script>
+</body>
+</html>

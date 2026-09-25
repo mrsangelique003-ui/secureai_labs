@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internships — SecureAI Labs</title>
+  <meta name="description" content="Internship opportunities at SecureAI Labs for undergraduate and secondary school students in Kicukiro, Kigali, Rwanda." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo.svg" />
+</head>
+<body class="page-body">
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">About Us</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="research.html">Research Journal</a><span class="utility-sep">|</span>
+      <a href="internships.html">Internships</a>
+    </div>
+    <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="internships.html" selected>English</option>
+          <option value="fr/internships.html">Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Secure Today, Empower Tomorrow</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link">About <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="about.html" class="dropdown-link">About SecureAI Labs</a>
+          <a href="about.html#mission" class="dropdown-link">Mission &amp; Vision</a>
+          <a href="about.html#advantages" class="dropdown-link">Our Advantages</a>
+          <a href="about.html#team" class="dropdown-link">Our Team</a>
+          <a href="about.html#partners" class="dropdown-link">Our Partners</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="programs.html" class="nav-link">Services <span class="nav-arrow"></span></a>
+        <div class="mega-dropdown">
+          <div class="mega-col">
+            <div class="mega-col-title">Training</div>
+            <a href="programs.html#internship" class="mega-link">
+              <div class="mega-link-icon">💼</div>
+              <div class="mega-link-body"><span class="mega-link-title">Internship Programme</span><span class="mega-link-desc">Networking &amp; Software Engineering</span></div>
+            </a>
+            <a href="programs.html#cisco" class="mega-link">
+              <div class="mega-link-icon">🌐</div>
+              <div class="mega-link-body"><span class="mega-link-title">Cisco Training Package</span><span class="mega-link-desc">5 official Cisco pathways</span></div>
+            </a>
+            <a href="programs.html#literacy" class="mega-link">
+              <div class="mega-link-icon">💻</div>
+              <div class="mega-link-body"><span class="mega-link-title">Digital Literacy</span><span class="mega-link-desc">Word, Excel, PowerPoint</span></div>
+            </a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Research &amp; Learn</div>
+            <a href="programs.html#research-svc" class="mega-link">
+              <div class="mega-link-icon">🔬</div>
+              <div class="mega-link-body"><span class="mega-link-title">Research Services</span><span class="mega-link-desc">Articles, Thesis &amp; support</span></div>
+            </a>
+            <a href="tutorials.html" class="mega-link">
+              <div class="mega-link-icon">📖</div>
+              <div class="mega-link-body"><span class="mega-link-title">Tutorials</span><span class="mega-link-desc">Step-by-step learning guides</span></div>
+            </a>
+            <a href="games.html" class="mega-link">
+              <div class="mega-link-icon">🎮</div>
+              <div class="mega-link-body"><span class="mega-link-title">Games &amp; Quizzes</span><span class="mega-link-desc">Test your knowledge interactively</span></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="internships.html" class="nav-link active">Internships <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="internships.html" class="dropdown-link">How It Works</a>
+          <a href="internships.html#open-roles" class="dropdown-link">Open Positions</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="research.html" class="nav-link">Research <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="research.html" class="dropdown-link">Research Journal (JSCI)</a>
+          <a href="research.html#journal" class="dropdown-link">Submit a Paper</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+      <li class="nav-item">
+        <a href="tutorials.html" class="nav-link">Learn <span class="nav-arrow"></span></a>
+        <div class="simple-dropdown">
+          <a href="tutorials.html" class="dropdown-link">📖 Tutorials</a>
+          <a href="games.html" class="dropdown-link">🎮 Games &amp; Quizzes</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Apply Now</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Services</a>
+    <a href="internships.html" class="mobile-nav-link active">Internships</a>
+    <a href="research.html" class="mobile-nav-link">Research</a>
+    <a href="events.html" class="mobile-nav-link">Events</a>
+    <a href="tutorials.html" class="mobile-nav-link">Tutorials</a>
+    <a href="games.html" class="mobile-nav-link">Games</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-actions"><a href="contact.html" class="btn btn-primary">Apply Now</a></div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <h3 style="margin-bottom:16px;">Search SecureAI Labs</h3>
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Search services, research, internships..." />
+      <button class="search-submit">Search</button>
+    </div>
+    <button class="search-close" id="searchClose">X Close</button>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Internships</span>
+    </div>
+    <h1 class="anim-fade-up anim-delay-1">Internship Programme</h1>
+    <p class="lead anim-fade-up anim-delay-2">SecureAI Labs offers internship opportunities for undergraduate students and secondary school students. Gain hands-on experience and build real skills.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;" class="anim-fade-up anim-delay-3">
+      <a href="#open-roles" class="btn btn-white btn-lg">View Open Positions</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Book Your Seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION STRIP -->
+<div style="background:var(--cambridge);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;">
+      <div style="padding:18px 28px;border-right:1px solid rgba(255,255,255,0.25);">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:5px;">Day Session</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--white);">09:00 – 12:00 &nbsp;&amp;&nbsp; 14:00 – 17:00</div>
+      </div>
+      <div style="padding:18px 32px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,0.25);">
+        <a href="contact.html" class="btn btn-white btn-sm">Book Your Seat</a>
+      </div>
+      <div style="padding:18px 28px;">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:5px;">Evening Session (Online)</div>
+        <div style="font-size:1.05rem;font-weight:700;color:var(--white);">18:00 – 20:00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTERNSHIP OPPORTUNITIES -->
+<section class="section" style="background:var(--grey-50);" id="open-roles">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-kicker">Internship Opportunities</span>
+      <h2 class="section-title">We Offer Internship Opportunities</h2>
+      <p class="section-lead">Open for undergraduate students and secondary school students.</p>
+    </div>
+    <div class="grid-2" style="max-width:900px;margin:0 auto 32px;">
+
+      <!-- Undergraduate -->
+      <div class="reveal reveal-delay-1" style="background:var(--white);border:2px solid var(--cambridge-deeper);border-radius:var(--r-lg);overflow:hidden;">
+        <div style="padding:22px 24px 18px;">
+          <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--cambridge-deeper);margin-bottom:6px;">For Undergraduate Students</div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:800;color:var(--cambridge-deeper);line-height:1.3;margin:0 0 16px;">WE OFFER INTERNSHIP OPPORTUNITIES FOR THESE DEPARTMENTS</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--cambridge-deeper);border-radius:var(--r-sm);overflow:hidden;">
+            <div style="padding:11px 14px;display:flex;align-items:center;gap:8px;border-right:1px solid var(--cambridge-deeper);border-bottom:1px solid var(--cambridge-deeper);">
+              <span style="color:var(--cambridge);">&#9658;</span><span style="font-weight:600;font-size:0.88rem;color:var(--grey-900);">Information Technology</span>
+            </div>
+            <div style="padding:11px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--cambridge-deeper);">
+              <span style="color:var(--cambridge);">&#9658;</span><span style="font-weight:600;font-size:0.88rem;color:var(--grey-900);">Computer Science</span>
+            </div>
+            <div style="padding:11px 14px;display:flex;align-items:center;gap:8px;border-right:1px solid var(--cambridge-deeper);">
+              <span style="color:var(--cambridge);">&#9658;</span><span style="font-weight:600;font-size:0.88rem;color:var(--grey-900);">Computer Engineering</span>
+            </div>
+            <div style="padding:11px 14px;display:flex;align-items:center;gap:8px;">
+              <span style="color:var(--cambridge);">&#9658;</span><span style="font-weight:600;font-size:0.88rem;color:var(--grey-900);">Computer Networking</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cambridge-deeper);padding:14px 24px;">
+          <div style="font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:10px;text-align:center;">Book Your Seat by Contacting</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <a href="tel:+250799431054" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#128222; +250 799 431 054</a>
+            <a href="https://www.secureailabs.org" target="_blank" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#127760; www.secureailabs.org</a>
+            <a href="mailto:info@secureailabs.org" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#9993; info@secureailabs.org</a>
+            <div style="color:rgba(255,255,255,0.9);font-size:0.8rem;">&#128205; Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary school -->
+      <div class="reveal reveal-delay-2" style="background:var(--white);border:2px solid var(--cambridge-deeper);border-radius:var(--r-lg);overflow:hidden;">
+        <div style="padding:16px 24px 4px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <img src="images/logo.svg" alt="SecureAI Labs" style="width:44px;height:44px;object-fit:contain;" />
+            <div style="font-family:var(--font-serif);font-weight:800;font-size:0.95rem;color:var(--cambridge-deeper);line-height:1.2;">SecureAI<br>Labs</div>
+          </div>
+          <div style="font-size:0.82rem;color:var(--grey-600);font-style:italic;text-align:right;line-height:1.4;">Securing the future<br>through Intelligent Technology</div>
+        </div>
+        <div style="background:var(--cambridge-deeper);padding:18px 24px 20px;">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.7);margin-bottom:4px;">For Secondary School Students</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;font-weight:800;color:var(--white);line-height:1.3;margin:0 0 14px;">WE OFFER INTERNSHIP OPPORTUNITIES FOR THESE TRADES</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-sm);padding:10px 14px;display:flex;align-items:center;gap:8px;">
+              <span style="color:rgba(255,255,255,0.8);">&#9658;</span><span style="font-weight:600;font-size:0.85rem;color:var(--white);">Web Application &amp; Software Development</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-sm);padding:10px 14px;display:flex;align-items:center;gap:8px;">
+              <span style="color:rgba(255,255,255,0.8);">&#9658;</span><span style="font-weight:600;font-size:0.85rem;color:var(--white);">Computer System &amp; Architecture</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-sm);padding:10px 14px;display:flex;align-items:center;gap:8px;">
+              <span style="color:rgba(255,255,255,0.8);">&#9658;</span><span style="font-weight:600;font-size:0.85rem;color:var(--white);">Networking &amp; Internet Protocol</span>
+            </div>
+          </div>
+          <div style="background:rgba(135,206,235,0.2);border:1px solid rgba(135,206,235,0.35);border-radius:var(--r-sm);padding:8px;text-align:center;margin-bottom:12px;">
+            <div style="font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);">Book Your Seat by Contacting</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <a href="tel:+250799431054" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#128222; +250 799 431 054</a>
+            <a href="https://www.secureailabs.org" target="_blank" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#127760; www.secureailabs.org</a>
+            <a href="mailto:info@secureailabs.org" style="color:rgba(255,255,255,0.9);font-size:0.8rem;text-decoration:none;">&#9993; info@secureailabs.org</a>
+            <div style="color:rgba(255,255,255,0.9);font-size:0.8rem;">&#128205; Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME TRACKS -->
+<section class="section" id="tracks">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px;" class="reveal">
+      <div>
+        <span class="section-kicker">Programme Tracks</span>
+        <h2 class="section-title" style="margin-bottom:0;">What You Will Learn</h2>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Apply Now</a>
+    </div>
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="card reveal reveal-delay-1" style="border-top:3px solid var(--cambridge);">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+          <div style="width:52px;height:52px;background:var(--cambridge-light);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">&#127757;</div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--cambridge);margin-bottom:3px;">Track 1</div>
+            <h3 style="font-family:var(--font-serif);font-weight:700;font-size:1.1rem;margin:0;color:var(--grey-900);">Networking &amp; Infrastructure</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <div style="padding:12px 14px;background:var(--grey-50);border-radius:var(--r-sm);border-left:3px solid var(--cambridge);">
+            <div style="font-weight:600;font-size:0.9rem;color:var(--grey-900);">IoT (Internet of Things)</div>
+            <div style="font-size:0.78rem;color:var(--grey-400);margin-top:2px;">Device setup, connectivity &amp; security</div>
+          </div>
+          <div style="padding:12px 14px;background:var(--grey-50);border-radius:var(--r-sm);border-left:3px solid var(--cambridge);">
+            <div style="font-weight:600;font-size:0.9rem;color:var(--grey-900);">Enterprise Networking &amp; Installation / Configuration</div>
+            <div style="font-size:0.78rem;color:var(--grey-400);margin-top:2px;">Routing, switching &amp; network setup</div>
+          </div>
+        </div>
+        <div style="background:var(--cambridge-pale);border-radius:var(--r-sm);padding:14px 16px;margin-top:auto;">
+          <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--cambridge);margin-bottom:8px;">Programme Output</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.82rem;color:var(--grey-700);">
+            <span>&#10003; Practical Skills</span><span>&#10003; Real Projects</span><span>&#10003; Certificate</span>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">Apply for This Track</a>
+      </div>
+      <div class="card reveal reveal-delay-2" style="border-top:3px solid var(--teal);">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+          <div style="width:52px;height:52px;background:var(--teal-light);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">&#128187;</div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:3px;">Track 2</div>
+            <h3 style="font-family:var(--font-serif);font-weight:700;font-size:1.1rem;margin:0;color:var(--grey-900);">Software Engineering</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <div style="padding:12px 14px;background:var(--grey-50);border-radius:var(--r-sm);border-left:3px solid var(--teal);">
+            <div style="font-weight:600;font-size:0.9rem;color:var(--grey-900);">Python Development</div>
+            <div style="font-size:0.78rem;color:var(--grey-400);margin-top:2px;">Scripting, automation &amp; security tools</div>
+          </div>
+          <div style="padding:12px 14px;background:var(--grey-50);border-radius:var(--r-sm);border-left:3px solid var(--teal);">
+            <div style="font-weight:600;font-size:0.9rem;color:var(--grey-900);">React + Node.js</div>
+            <div style="font-size:0.78rem;color:var(--grey-400);margin-top:2px;">Full-stack web development &amp; APIs</div>
+          </div>
+          <div style="padding:12px 14px;background:var(--grey-50);border-radius:var(--r-sm);border-left:3px solid var(--teal);">
+            <div style="font-weight:600;font-size:0.9rem;color:var(--grey-900);">Digital Marketing</div>
+            <div style="font-size:0.78rem;color:var(--grey-400);margin-top:2px;">Social media, content &amp; online presence</div>
+          </div>
+        </div>
+        <div style="background:var(--teal-light);border-radius:var(--r-sm);padding:14px 16px;margin-top:auto;">
+          <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Programme Output</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.82rem;color:var(--grey-700);">
+            <span>&#10003; Practical Skills</span><span>&#10003; Real Projects</span><span>&#10003; Certificate</span>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;background:var(--teal);border-color:var(--teal);">Apply for This Track</a>
+      </div>
+    </div>
+    <div style="background:var(--cambridge-deeper);border-radius:var(--r-md);padding:22px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;" class="reveal">
+      <div style="flex:1;">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.6);margin-bottom:6px;">All Tracks — Programme Output</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:0.92rem;color:var(--white);">
+          <span>&#128295; <strong>Practical Skills</strong></span>
+          <span>&#128187; <strong>Real Projects</strong></span>
+          <span>&#127891; <strong>Certificate of Completion</strong></span>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn-white">Apply Now</a>
+    </div>
+  </div>
+</section>
+<!-- BENEFITS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-kicker">Programme Benefits</span>
+      <h2 class="section-title">More than just work experience</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon">🎯</div>
+        <h3 class="card-title">Dedicated Mentorship</h3>
+        <p class="card-text">Every intern is paired with a senior industry mentor who provides weekly 1-on-1 coaching, career guidance and technical support throughout the placement.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon">📄</div>
+        <h3 class="card-title">Verified Credentials</h3>
+        <p class="card-text">Receive a verified digital credential and detailed performance report from SecureAI Labs — independently verifiable by any employer worldwide.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon">🌍</div>
+        <h3 class="card-title">Global Network Access</h3>
+        <p class="card-text">Join our growing network of alumni and partner organisations. Our community actively supports members with opportunities and connections.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-1">
+        <div class="card-icon card-icon-teal">💰</div>
+        <h3 class="card-title">Stipend Support</h3>
+        <p class="card-text">All placements include a monthly stipend. For students facing financial barriers, additional hardship grants are available through our community impact fund.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-2">
+        <div class="card-icon">🎓</div>
+        <h3 class="card-title">Continued Learning</h3>
+        <p class="card-text">During your internship, access all SecureAI Labs courses and weekly live skills workshops — completely free for active interns throughout their placement.</p>
+      </div>
+      <div class="card card-ruled reveal reveal-delay-3">
+        <div class="card-icon card-icon-teal">📈</div>
+        <h3 class="card-title">Career Placement</h3>
+        <p class="card-text">Our career team works with every intern to help them secure their next opportunity after the placement ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="container reveal">
+    <h2>Your career in AI &amp; Security starts here</h2>
+    <p>Applications for the 2026 cohort are open. Limited places are available — apply early to secure your placement preference.</p>
+    <div class="cta-band-actions">
+      <a href="contact.html" class="btn btn-white btn-lg">Apply for Internship</a>
+      <a href="programs.html" class="btn btn-outline-white btn-lg">Complete a Programme First</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Secure Today, Empower Tomorrow</span></div>
+          </a>
+          <p class="footer-brand-text">Empowering the next generation of AI and cybersecurity professionals through education, experience and research — across 40+ countries.</p>
+          <div class="footer-social-title">Follow Us</div>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@secureai.lab" class="social-icon" target="_blank" aria-label="TikTok">🎵</a><a href="https://www.instagram.com/secureairwanda" class="social-icon" target="_blank" aria-label="Instagram">📸</a><a href="https://x.com/SecureAILabRwa" class="social-icon" target="_blank" aria-label="X">𝕏</a><a href="https://linkedin.com/company/secure-ai-labs" class="social-icon" target="_blank" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Programmes</div>
+          <div class="footer-links">
+            <a href="programs.html" class="footer-link">AI &amp; Machine Learning</a>
+            <a href="programs.html#cisco" class="footer-link">Cisco Certifications</a>
+            <a href="programs.html#security" class="footer-link">Cybersecurity</a>
+            <a href="programs.html#literacy" class="footer-link">Digital Literacy</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="about.html#team" class="footer-link">Leadership Team</a>
+            <a href="research.html" class="footer-link">Research Journal</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact Us</div>
+          <div class="footer-links">
+            <a href="tel:+250799431054" class="footer-link">📞 +250 799 431 054</a>
+            <a href="tel:+250791503203" class="footer-link">📞 +250 791 503 203</a>
+            <a href="mailto:info@secureailabs.org" class="footer-link">✉ info@secureailabs.org</a>
+            <a href="mailto:journal@secureailabs.org" class="footer-link">✉ journal@secureailabs.org</a>
+            <a href="https://www.secureailabs.org" class="footer-link">🌐 www.secureailabs.org</a>
+            <div class="footer-link" style="cursor:default;">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

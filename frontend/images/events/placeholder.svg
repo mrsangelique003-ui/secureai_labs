@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#E8F2FA"/>
+  <rect x="340" y="220" width="120" height="90" rx="8" fill="#006CB7" opacity="0.2"/>
+  <circle cx="375" cy="248" r="18" fill="#006CB7" opacity="0.25"/>
+  <path d="M340 310 L380 265 L420 295 L460 255 L500 310 Z" fill="#006CB7" opacity="0.2"/>
+  <text x="400" y="370" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#004E8A" text-anchor="middle" opacity="0.6">Official Visit of the Ambassador of Gabon</text>
+  <text x="400" y="395" font-family="Arial,sans-serif" font-size="13" fill="#006CB7" text-anchor="middle" opacity="0.5">Save photo as amb1.jpg → amb8.jpg in images/events/ambassador/</text>
+  <text x="400" y="420" font-family="Arial,sans-serif" font-size="12" fill="#9BA3AF" text-anchor="middle">SecureAI Labs</text>
+</svg>

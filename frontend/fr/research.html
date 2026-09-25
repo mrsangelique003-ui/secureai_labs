@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recherche &amp; Revue — SecureAI Labs</title>
+  <meta name="description" content="La revue scientifique SecureAI Labs — recherches de pointe en sécurité IA, systèmes préservant la confidentialité, éthique et menaces numériques émergentes. Libre accès." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="../images/logo.svg" />
+</head>
+<body class="page-body">
+
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">À propos</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="#">Espace étudiant</a><span class="utility-sep">|</span>
+      <a href="#">Actualités</a>
+    </div>
+        <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Sélectionner la langue">
+          <option value="../research.html">English</option>
+          <option value="research.html" selected>Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link">À propos</a></li>
+      <li class="nav-item"><a href="programs.html" class="nav-link">Formations</a></li>
+      <li class="nav-item"><a href="internships.html" class="nav-link">Stages</a></li>
+      <li class="nav-item"><a href="research.html" class="nav-link active">Recherche</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Rechercher">🔍</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Soumettre un article</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Accueil</a>
+    <a href="about.html" class="mobile-nav-link">À propos</a>
+    <a href="programs.html" class="mobile-nav-link">Formations</a>
+    <a href="internships.html" class="mobile-nav-link">Stages</a>
+    <a href="research.html" class="mobile-nav-link active">Recherche</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-nav-actions"><a href="contact.html" class="btn btn-primary">Soumettre</a></div>
+  </div>
+</div>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <h3 style="margin-bottom:16px;">Rechercher</h3>
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Formations, recherches, stages…" />
+      <button class="search-submit">Rechercher</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Fermer</button>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Recherche &amp; Revue</span>
+    </div>
+    <h1 class="anim-fade-up anim-delay-1">Revue scientifique SecureAI Labs</h1>
+    <p class="lead anim-fade-up anim-delay-2">Une revue évaluée par les pairs en libre accès, publiant des recherches de pointe en sécurité IA, systèmes préservant la confidentialité, IA éthique et menaces numériques émergentes. Citée par MIT, Cambridge et Stanford.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;" class="anim-fade-up anim-delay-3">
+      <a href="#papers" class="btn btn-white btn-lg">Parcourir les publications</a>
+      <a href="#journal" class="btn btn-outline-white btn-lg">Soumettre vos travaux</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container">
+    <div class="grid-4">
+      <div class="stat-block reveal"><span class="stat-num" data-count="380">0</span><span class="stat-label">Articles publiés</span></div>
+      <div class="stat-block reveal reveal-delay-1"><span class="stat-num" data-count="4200">0</span><span class="stat-label">Citations totales</span></div>
+      <div class="stat-block reveal reveal-delay-2"><span class="stat-num" data-count="60">0</span><span class="stat-label">Évaluateurs experts</span></div>
+      <div class="stat-block reveal reveal-delay-3"><span class="stat-num">6</span><span class="stat-label">Numéros par an</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DOMAINES DE RECHERCHE -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-kicker">Périmètre &amp; domaines</span>
+      <h2 class="section-title">Ce que nous publions</h2>
+      <p class="section-lead">Nous acceptons des recherches originales de haute qualité dans six domaines clés de la sécurité IA et de la sûreté numérique.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card card-ruled reveal reveal-delay-1"><div class="card-icon">🛡️</div><h3 class="card-title">Sécurité IA &amp; ML adversarial</h3><p class="card-text">Attaques contre les systèmes IA, exemples adversariaux, robustesse des modèles, injection de prompts et défenses pour les pipelines ML en production.</p></div>
+      <div class="card card-ruled reveal reveal-delay-2"><div class="card-icon card-icon-teal">🔒</div><h3 class="card-title">IA préservant la confidentialité</h3><p class="card-text">Apprentissage fédéré, confidentialité différentielle, chiffrement homomorphe et autres techniques permettant une IA collaborative sans exposer de données sensibles.</p></div>
+      <div class="card card-ruled reveal reveal-delay-3"><div class="card-icon">⚖️</div><h3 class="card-title">Éthique &amp; équité de l'IA</h3><p class="card-text">Détection des biais, équité algorithmique, responsabilité, transparence et impact social du déploiement de l'IA dans des domaines à fort enjeu.</p></div>
+      <div class="card card-ruled reveal reveal-delay-1"><div class="card-icon">🌐</div><h3 class="card-title">Sécurité réseau &amp; infrastructures</h3><p class="card-text">Renseignement sur les menaces piloté par l'IA, détection d'intrusions, architecture Zero Trust et sécurisation des infrastructures critiques.</p></div>
+      <div class="card card-ruled reveal reveal-delay-2"><div class="card-icon card-icon-teal">🧬</div><h3 class="card-title">IA en sécurité des soins de santé</h3><p class="card-text">IA médicale préservant la confidentialité, sécurisation des écosystèmes de données de santé, conformité réglementaire (RGPD, HIPAA) et déploiement clinique sûr.</p></div>
+      <div class="card card-ruled reveal reveal-delay-3"><div class="card-icon">📜</div><h3 class="card-title">Politique &amp; droit de la cybersécurité</h3><p class="card-text">Souveraineté numérique, cadres internationaux de gouvernance IA, droit du numérique et recommandations politiques pour les technologies émergentes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS RÉCENTES -->
+<section class="section" style="background:var(--grey-50);" id="papers">
+  <div class="container">
+    <div class="layout-with-sidebar">
+      <div>
+        <div class="reveal" style="margin-bottom:28px;">
+          <span class="section-kicker">Volume 7, Numéro 3 · Septembre 2026</span>
+          <h2 class="section-title" style="margin-bottom:0;">Publications récentes</h2>
+        </div>
+
+        <!-- Article vedette -->
+        <div style="background:var(--white);border:1px solid var(--cambridge);border-left:5px solid var(--cambridge);border-radius:var(--r-md);padding:28px;margin-bottom:24px;" class="reveal">
+          <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+            <span class="tag tag-blue">Article vedette</span>
+            <span class="tag tag-blue">Sécurité IA</span>
+            <span class="tag tag-grey">Sept. 2026 · 18 pages</span>
+          </div>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;font-weight:700;margin-bottom:10px;line-height:1.4;">Robustesse adversariale des grands modèles de langage face aux attaques par injection de prompts : un cadre de défense constitutionnel</h3>
+          <p style="font-size:0.9rem;color:var(--grey-500);line-height:1.7;margin-bottom:16px;">Cet article évalue systématiquement la vulnérabilité des LLMs à l'injection de prompts et propose un cadre de défense basé sur l'IA constitutionnelle, réduisant le taux de réussite des attaques de 94,7 % tout en maintenant une précision de 95,1 % sur les tâches bénignes.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <div style="font-size:0.82rem;color:var(--grey-400);">Auteurs : Chen, M. &amp; Osei, K. · Citations : 47 · DOI : 10.31234/sail.2026.0912</div>
+            <div style="display:flex;gap:8px;"><a href="contact.html" class="btn btn-primary btn-sm">Lire l'article</a><a href="contact.html" class="btn btn-outline btn-sm">Citer</a></div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card reveal reveal-delay-1" style="padding:20px 24px;">
+            <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"><span class="tag tag-teal">Confidentialité</span><span class="tag tag-grey">Août 2026</span></div>
+            <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4;">Apprentissage fédéré avec confidentialité différentielle pour la collaboration en données de santé</h4>
+            <p style="font-size:0.875rem;color:var(--grey-500);margin-bottom:12px;line-height:1.6;">Recherche IA médicale multi-institutionnelle sans exposer les données patients — validée dans cinq hôpitaux avec des garanties ε-DP de 0,3.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:0.78rem;color:var(--grey-400);">Patel, A., Nwosu, C., Kim, J. · Citations : 31</span>
+              <a href="contact.html" class="btn btn-outline btn-sm">Lire →</a>
+            </div>
+          </div>
+          <div class="card reveal reveal-delay-2" style="padding:20px 24px;">
+            <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"><span class="tag tag-amber">Éthique</span><span class="tag tag-grey">Août 2026</span></div>
+            <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4;">Détection et atténuation des biais dans les systèmes de recrutement assistés par l'IA</h4>
+            <p style="font-size:0.875rem;color:var(--grey-500);margin-bottom:12px;line-height:1.6;">Un pipeline de détection-atténuation réduisant les disparités démographiques de 67 % dans des essais contrôlés menés auprès de 12 organisations dans trois pays.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:0.78rem;color:var(--grey-400);">Williams, T. &amp; Diallo, F. · Citations : 28</span>
+              <a href="contact.html" class="btn btn-outline btn-sm">Lire →</a>
+            </div>
+          </div>
+          <div class="card reveal reveal-delay-3" style="padding:20px 24px;">
+            <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"><span class="tag tag-blue">Infrastructure</span><span class="tag tag-grey">Juil. 2026</span></div>
+            <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4;">Architecture Zero Trust en environnements cloud hybrides : leçons du terrain</h4>
+            <p style="font-size:0.875rem;color:var(--grey-500);margin-bottom:12px;line-height:1.6;">Analyse basée sur des études de cas de déploiements Zero Trust dans 8 entreprises, avec un modèle de maturité d'implémentation en cinq phases.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:0.78rem;color:var(--grey-400);">Al-Rashid, A. et al. · Citations : 22</span>
+              <a href="contact.html" class="btn btn-outline btn-sm">Lire →</a>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:24px;" class="reveal">
+          <a href="contact.html" class="btn btn-outline">Voir les 380+ publications →</a>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <h4>Informations sur la revue</h4>
+          <div style="font-size:0.82rem;color:var(--grey-500);display:flex;flex-direction:column;gap:8px;">
+            <div>📋 <strong>ISSN :</strong> 2754-9821 (En ligne)</div>
+            <div>📅 <strong>Délai d'évaluation :</strong> 4–6 semaines</div>
+            <div>🌍 <strong>Accès :</strong> Libre accès CC BY 4.0</div>
+            <div>📬 <strong>Rédaction :</strong> editor@secureailabs.org</div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <h4>Parcourir par thème</h4>
+          <a href="#" class="sidebar-link">Sécurité IA</a>
+          <a href="#" class="sidebar-link">IA &amp; Confidentialité</a>
+          <a href="#" class="sidebar-link">Éthique de l'IA</a>
+          <a href="#" class="sidebar-link">Sécurité réseau</a>
+          <a href="#" class="sidebar-link">IA en santé</a>
+          <a href="#" class="sidebar-link">Politique &amp; Droit</a>
+        </div>
+        <div class="sidebar-box" style="background:var(--cambridge);border:none;">
+          <h4 style="color:var(--white);border-bottom-color:rgba(255,255,255,0.3);">Soumettre vos travaux</h4>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.85);margin-bottom:16px;line-height:1.6;">Gratuit à soumettre. Pas de frais de publication. Libre accès à l'acceptation.</p>
+          <a href="#journal" class="btn btn-white btn-sm" style="width:100%;justify-content:center;">Soumettre maintenant</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOUMISSION -->
+<section class="section" id="journal">
+  <div class="container">
+    <div style="max-width:680px;">
+      <span class="section-kicker">Pour les auteurs</span>
+      <h2 class="section-title reveal">Publier dans la Revue SecureAI Labs</h2>
+      <p style="margin-bottom:28px;color:var(--grey-500);line-height:1.75;" class="reveal">Nous accueillons des articles originaux, des revues de littérature, des études de cas et des articles de position d'universitaires, praticiens et étudiants du monde entier. Toutes les soumissions font l'objet d'une évaluation rigoureuse en double aveugle.</p>
+
+      <div style="background:var(--grey-50);border:1px solid var(--grey-200);border-radius:var(--r-lg);padding:32px;" class="reveal">
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;margin-bottom:24px;">Soumettre un article</h3>
+        <form id="submissionForm" onsubmit="return handleSubmit(event)">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Nom de l'auteur principal <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Dr. Jean Dupont" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Adresse e-mail <span class="form-required">*</span></label>
+              <input type="email" class="form-input" placeholder="auteur@institution.fr" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Titre de l'article <span class="form-required">*</span></label>
+            <input type="text" class="form-input" placeholder="Titre de votre article de recherche" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Domaine de recherche <span class="form-required">*</span></label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Sélectionner le domaine principal</option>
+              <option>Sécurité IA &amp; ML adversarial</option>
+              <option>IA préservant la confidentialité</option>
+              <option>Éthique &amp; équité de l'IA</option>
+              <option>Sécurité réseau &amp; infrastructures</option>
+              <option>IA en sécurité des soins de santé</option>
+              <option>Politique &amp; droit de la cybersécurité</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Résumé <span class="form-required">*</span></label>
+            <textarea class="form-textarea" placeholder="Résumé de 150 à 300 mots…" required style="min-height:100px;"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Établissement / Organisation</label>
+            <input type="text" class="form-input" placeholder="Université ou organisation" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Soumettre pour évaluation →</button>
+          <p style="font-size:0.78rem;color:var(--grey-400);text-align:center;margin-top:10px;">Soumission gratuite. Pas de frais de publication. Libre accès à l'acceptation.</p>
+        </form>
+        <div id="submitSuccess" style="display:none;background:var(--teal-light);border:1px solid var(--teal);border-radius:var(--r-md);padding:24px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:8px;">✓</div>
+          <h4 style="color:var(--teal);margin-bottom:6px;">Soumission reçue</h4>
+          <p style="font-size:0.9rem;color:var(--grey-500);margin:0;">Nous accuserons réception de votre article dans les 48 heures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container reveal">
+    <h2>Prêt à partager vos recherches avec le monde ?</h2>
+    <p>Rejoignez des centaines de chercheurs qui ont publié leurs travaux en sécurité IA via SecureAI Labs. Gratuit, en libre accès et indexé mondialement.</p>
+    <div class="cta-band-actions">
+      <a href="#journal" class="btn btn-white btn-lg">Soumettre votre article</a>
+      <a href="programs.html#research" class="btn btn-outline-white btn-lg">Bourse de recherche</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="../images/logo.svg" alt="Logo SecureAI Labs" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Sécurisez aujourd'hui, Dynamisez demain</span></div>
+          </a>
+          <p class="footer-brand-text">Former la prochaine génération en IA et cybersécurité dans plus de 40 pays.</p>
+          <div class="footer-social-title">Suivez-nous</div>
+          <div class="footer-social"><a href="#" class="social-icon">𝕏</a><a href="#" class="social-icon">in</a><a href="#" class="social-icon">gh</a><a href="#" class="social-icon">▶</a></div>
+        </div>
+        <div>
+          <div class="footer-col-title">Formations</div>
+          <div class="footer-links"><a href="programs.html" class="footer-link">IA &amp; ML</a><a href="programs.html#cisco" class="footer-link">Cisco</a><a href="programs.html#security" class="footer-link">Cybersécurité</a></div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links"><a href="about.html" class="footer-link">À propos</a><a href="research.html" class="footer-link">Revue scientifique</a><a href="contact.html" class="footer-link">Contact</a></div>
+        </div>
+        <div>
+          <div class="footer-col-title">Ressources</div>
+          <div class="footer-links"><a href="#" class="footer-link">Espace étudiant</a><a href="#papers" class="footer-link">Publications</a><a href="contact.html" class="footer-link">FAQ</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. Tous droits réservés.</p>
+      <div class="footer-legal"><a href="#">Confidentialité</a><a href="#">Conditions</a><a href="#">Accessibilité</a></div>
+    </div>
+  </div>
+</footer>
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Haut de page">↑</button>
+<script src="../js/main.js"></script>
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('submissionForm').style.display = 'none';
+    document.getElementById('submitSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
