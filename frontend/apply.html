@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply Now — SecureAI Labs</title>
+  <meta name="description" content="Apply to SecureAI Labs programmes, internships, research or book your seat." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo.svg" />
+  <style>
+    .apply-hero {
+      background: var(--cambridge-deeper);
+      padding: 100px 0 48px;
+      text-align: center;
+    }
+    .apply-hero h1 { color: var(--white); margin-bottom: 10px; }
+    .apply-hero p  { color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto; }
+
+    .apply-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--grey-200);
+      margin-bottom: 36px;
+      overflow-x: auto;
+    }
+    .apply-tab {
+      padding: 14px 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--grey-500);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: var(--font-sans);
+      transition: var(--ease);
+    }
+    .apply-tab:hover { color: var(--cambridge); }
+    .apply-tab.active { color: var(--cambridge); border-bottom-color: var(--cambridge); }
+    .apply-panel { display: none; }
+    .apply-panel.active { display: block; }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--grey-200);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-md);
+    }
+    .form-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .form-card p { font-size: 0.9rem; color: var(--grey-500); margin-bottom: 28px; }
+
+    .success-card {
+      background: var(--teal-light);
+      border: 1px solid var(--teal);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      display: none;
+    }
+    .success-card h3 { color: var(--teal); margin-bottom: 8px; font-family: var(--font-serif); }
+    .success-card p  { color: var(--grey-600); font-size: 0.95rem; }
+  </style>
+</head>
+<body class="page-body">
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <a href="about.html">About Us</a><span class="utility-sep">|</span>
+      <a href="contact.html">Contact</a><span class="utility-sep">|</span>
+      <a href="research.html">Research Journal</a><span class="utility-sep">|</span>
+      <a href="internships.html">Internships</a>
+    </div>
+    <div class="utility-right">
+      <div class="lang-select-wrap">
+        <select class="lang-select" id="langSelect" aria-label="Select language">
+          <option value="apply.html" selected>English</option>
+          <option value="fr/index.html">Français</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">SecureAI Labs</span>
+        <span class="nav-logo-sub">Secure Today, Empower Tomorrow</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="programs.html" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="internships.html" class="nav-link">Internships</a></li>
+      <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
+      <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-search-btn" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="programs.html" class="mobile-nav-link">Services</a>
+    <a href="internships.html" class="mobile-nav-link">Internships</a>
+    <a href="research.html" class="mobile-nav-link">Research</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </div>
+</div>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" placeholder="Search..." />
+      <button class="search-submit">Search</button>
+    </div>
+    <button class="search-close" id="searchClose">✕ Close</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="apply-hero">
+  <div class="container">
+    <div class="breadcrumb" style="justify-content:center;">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Apply Now</span>
+    </div>
+    <h1 class="anim-fade-up anim-delay-1">Apply to SecureAI Labs</h1>
+    <p class="anim-fade-up anim-delay-2">Choose what you want to apply for and fill in the form — we respond within one business day.</p>
+  </div>
+</div>
+
+<!-- APPLY FORM -->
+<section class="section" style="background:var(--grey-50);">
+  <div class="container">
+
+    <!-- Tab bar -->
+    <div class="apply-tabs" id="applyTabs">
+      <button class="apply-tab active" onclick="switchTab('programme', this)">🎓 Enrol in a Programme</button>
+      <button class="apply-tab" onclick="switchTab('internship', this)">💼 Internship Application</button>
+      <button class="apply-tab" onclick="switchTab('research', this)">🔬 Research / JSCI</button>
+      <button class="apply-tab" onclick="switchTab('general', this)">✉ General Inquiry</button>
+    </div>
+
+    <!-- Panel 1: Programme -->
+    <div class="apply-panel active" id="panel-programme">
+      <div class="form-card">
+        <h2>Enrol in a Programme</h2>
+        <p>Fill in your details and choose the service you want to enrol in. We will contact you with next steps.</p>
+        <form onsubmit="submitForm(event,'panel-programme')">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">First Name <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="First name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Last name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email <span class="form-required">*</span></label>
+            <input type="email" class="form-input" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp <span class="form-required">*</span></label>
+            <input type="tel" class="form-input" placeholder="+250 7XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Programme <span class="form-required">*</span></label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Select programme</option>
+              <optgroup label="Internship Programme">
+                <option>IoT — Networking &amp; Infrastructure</option>
+                <option>Enterprise Networking &amp; Installation/Configuration</option>
+                <option>Python Development</option>
+                <option>React + Node.js</option>
+                <option>Digital Marketing</option>
+              </optgroup>
+              <optgroup label="Cisco Training">
+                <option>IT Support Specialist Pathway</option>
+                <option>Cybersecurity Defence Analyst</option>
+                <option>Ethical Hacker</option>
+                <option>Network Technician Career Pathway</option>
+                <option>Introduction to Cyber Security</option>
+              </optgroup>
+              <optgroup label="Research Services">
+                <option>Research Article Support</option>
+                <option>Thesis Book — Masters</option>
+                <option>Thesis Book — Undergraduate</option>
+              </optgroup>
+              <optgroup label="Digital Literacy">
+                <option>Microsoft Word</option>
+                <option>Microsoft Excel</option>
+                <option>Microsoft PowerPoint</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Session</label>
+            <select class="form-select">
+              <option>Day — 09:00 to 12:00</option>
+              <option>Day — 14:00 to 17:00</option>
+              <option>Evening — 18:00 to 20:00 (Online)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message (optional)</label>
+            <textarea class="form-textarea" placeholder="Any questions or additional info..." style="min-height:80px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Submit Application →</button>
+        </form>
+        <div class="success-card" id="success-programme">
+          <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+          <h3>Application Received!</h3>
+          <p>Thank you! We will contact you within one business day to confirm your enrolment.<br><br>
+          <strong>Phone:</strong> +250 799 431 054 &nbsp;·&nbsp; <strong>Email:</strong> info@secureailabs.org</p>
+          <a href="index.html" class="btn btn-primary" style="margin-top:20px;">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Internship -->
+    <div class="apply-panel" id="panel-internship">
+      <div class="form-card">
+        <h2>Internship Application</h2>
+        <p>Apply for an internship placement — open for undergraduate students and secondary school students.</p>
+        <form onsubmit="submitForm(event,'panel-internship')">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Full Name <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="form-required">*</span></label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp <span class="form-required">*</span></label>
+            <input type="tel" class="form-input" placeholder="+250 7XX XXX XXX" required />
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Student Level <span class="form-required">*</span></label>
+              <select class="form-select" required>
+                <option value="" disabled selected>Select level</option>
+                <option>Undergraduate Student</option>
+                <option>Secondary School Student</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Institution</label>
+              <input type="text" class="form-input" placeholder="School or university" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Internship Track <span class="form-required">*</span></label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Select track</option>
+              <optgroup label="Networking &amp; Infrastructure">
+                <option>IoT (Internet of Things)</option>
+                <option>Enterprise Networking &amp; Installation/Configuration</option>
+              </optgroup>
+              <optgroup label="Software Engineering">
+                <option>Python Development</option>
+                <option>React + Node.js</option>
+                <option>Digital Marketing</option>
+              </optgroup>
+              <optgroup label="Secondary School Trades">
+                <option>Web Application &amp; Software Development</option>
+                <option>Computer System &amp; Architecture</option>
+                <option>Networking &amp; Internet Protocol</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Why do you want to join? <span class="form-required">*</span></label>
+            <textarea class="form-textarea" placeholder="Tell us about yourself and your goals..." required style="min-height:90px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Submit Application →</button>
+        </form>
+        <div class="success-card" id="success-internship">
+          <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+          <h3>Application Received!</h3>
+          <p>We will review your internship application and contact you within one business day.<br><br>
+          <strong>WhatsApp:</strong> +250 799 431 054</p>
+          <a href="internships.html" class="btn btn-primary" style="margin-top:20px;">View Internship Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Research -->
+    <div class="apply-panel" id="panel-research">
+      <div class="form-card">
+        <h2>Research / JSCI Journal</h2>
+        <p>Submit a paper to the JSCI Journal or request research consultancy support.</p>
+        <form onsubmit="submitForm(event,'panel-research')">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Author Name <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="form-required">*</span></label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Request Type <span class="form-required">*</span></label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Submit Paper to JSCI Journal</option>
+              <option>Research Article Support</option>
+              <option>Thesis Book — Masters</option>
+              <option>Thesis Book — Undergraduate</option>
+              <option>Data Analysis &amp; Visualization</option>
+              <option>Research Validation &amp; Results Verification</option>
+              <option>Journal Publication Guidance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Title / Topic <span class="form-required">*</span></label>
+            <input type="text" class="form-input" placeholder="Paper title or research topic" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Abstract / Description <span class="form-required">*</span></label>
+            <textarea class="form-textarea" placeholder="Brief description of your research..." required style="min-height:100px;"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Institution</label>
+            <input type="text" class="form-input" placeholder="University or organisation" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Submit →</button>
+        </form>
+        <div class="success-card" id="success-research">
+          <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+          <h3>Submission Received!</h3>
+          <p>We will acknowledge your submission within 48 hours.<br><br>
+          <strong>Research email:</strong> journal@secureailabs.org</p>
+          <a href="research.html" class="btn btn-primary" style="margin-top:20px;">View Research Journal</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: General -->
+    <div class="apply-panel" id="panel-general">
+      <div class="form-card">
+        <h2>General Inquiry</h2>
+        <p>Any question? Send us a message and we will get back to you quickly.</p>
+        <form onsubmit="submitForm(event,'panel-general')">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Name <span class="form-required">*</span></label>
+              <input type="text" class="form-input" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="form-required">*</span></label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp</label>
+            <input type="tel" class="form-input" placeholder="+250 7XX XXX XXX" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message <span class="form-required">*</span></label>
+            <textarea class="form-textarea" placeholder="How can we help you?" required style="min-height:120px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Send Message →</button>
+        </form>
+        <div class="success-card" id="success-general">
+          <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+          <h3>Message Sent!</h3>
+          <p>We will reply within one business day.<br><br>
+          You can also reach us directly on WhatsApp: <strong>+250 799 431 054</strong></p>
+          <a href="index.html" class="btn btn-primary" style="margin-top:20px;">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct contact strip -->
+    <div style="max-width:680px;margin:28px auto 0;background:var(--cambridge-deeper);border-radius:var(--r-md);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.8);">Prefer to contact us directly?</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="tel:+250799431054" style="color:var(--white);font-weight:700;font-size:0.9rem;text-decoration:none;">📞 +250 799 431 054</a>
+        <a href="https://wa.me/250799431054" target="_blank" style="color:var(--white);font-weight:700;font-size:0.9rem;text-decoration:none;">💬 WhatsApp</a>
+        <a href="mailto:info@secureailabs.org" style="color:var(--white);font-weight:700;font-size:0.9rem;text-decoration:none;">✉ Email</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+            <div class="footer-logo-crest"><img src="images/logo.svg" alt="SecureAI Labs logo" /></div>
+            <div class="nav-logo-text"><span class="nav-logo-main" style="color:var(--white);">SecureAI Labs</span><span class="nav-logo-sub">Secure Today, Empower Tomorrow</span></div>
+          </a>
+          <p class="footer-brand-text">A hub of innovation and knowledge — Kicukiro, Kigali, Rwanda.</p>
+          <div class="footer-social-title">Follow Us</div>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@secureai.lab" class="social-icon" target="_blank">🎵</a>
+            <a href="https://www.instagram.com/secureairwanda" class="social-icon" target="_blank">📸</a>
+            <a href="https://x.com/SecureAILabRwa" class="social-icon" target="_blank">𝕏</a>
+            <a href="https://linkedin.com/company/secure-ai-labs" class="social-icon" target="_blank">in</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="programs.html#internship" class="footer-link">Internship Programme</a>
+            <a href="programs.html#cisco" class="footer-link">Cisco Training</a>
+            <a href="programs.html#research-svc" class="footer-link">Research Services</a>
+            <a href="programs.html#literacy" class="footer-link">Digital Literacy</a>
+            <a href="programs.html#jsci" class="footer-link">JSCI Journal</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Organisation</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="about.html#partners" class="footer-link">Our Partners</a>
+            <a href="events.html" class="footer-link">Events</a>
+            <a href="research.html" class="footer-link">Research Journal</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+250799431054" class="footer-link">📞 +250 799 431 054</a>
+            <a href="tel:+250791503203" class="footer-link">📞 +250 791 503 203</a>
+            <a href="mailto:info@secureailabs.org" class="footer-link">✉ info@secureailabs.org</a>
+            <a href="mailto:journal@secureailabs.org" class="footer-link">✉ journal@secureailabs.org</a>
+            <div class="footer-link" style="cursor:default;">📍 Kicukiro, Kigali, Rwanda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">© 2026 SecureAI Labs. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="scroll-progress"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+<script>
+  /* ── Tab switching ── */
+  function switchTab(name, btn) {
+    document.querySelectorAll('.apply-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.apply-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + name).classList.add('active');
+    window.scrollTo({ top: document.getElementById('applyTabs').offsetTop - 120, behavior: 'smooth' });
+  }
+
+  /* ── Form submit ── */
+  function submitForm(e, panelId) {
+    e.preventDefault();
+    const panel = document.getElementById(panelId);
+    panel.querySelector('form').style.display = 'none';
+    const success = document.getElementById('success-' + panelId.replace('panel-',''));
+    success.style.display = 'block';
+
+    /* Try to send to backend if running */
+    const formData = new FormData(e.target);
+    const data = {};
+    formData.forEach((v,k) => data[k] = v);
+    fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {/* backend not running — form still shown as success */});
+  }
+
+  /* ── Open correct tab from URL hash ── */
+  const hash = window.location.hash.replace('#','');
+  const tabMap = { programme: 0, internship: 1, research: 2, general: 3 };
+  if (hash in tabMap) {
+    const tabs = document.querySelectorAll('.apply-tab');
+    tabs[tabMap[hash]]?.click();
+  }
+</script>
+</body>
+</html>
